@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/05/30 21:55:24 by dim              ###   ########.fr       */
+/*   Updated: 2021/05/31 21:54:29 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,38 @@
 
 void	push_swap(int argc, char *argv[])
 {
-	t_st	*stack_a;
-	t_st	*stack_b;
+	t_lst	*tail_a;
+	t_lst	*tail_b;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	tail_a = lst_new();
 	if (argc < 2)
-		return 0;
+		return (0);
 	check_error();
-	parse(argc, argv, &stack_a);
-
+	parse(argc, argv, tail_a);
 	return (0);
 }
 
-void	parse(int argc, char **argv, t_st **head)
+void	parse(int argc, char **argv, t_st *tail_a)
 {
+	t_st	*stack_a;
 	int		i;
+	char	*num;
 
-	while (i < argc)
+	i = 0;
+	while (argv[i])
 	{
-		
+		num = ft_atol(argv[i]);
+		stack_a = ft_lstnew(num);
+		ft_lstadd_tail(&(tail_a->tail), stack_a); 
 	}
+	tail_a->tail = stack_a;
 }
 
- void	sa()
+void	ft_lstadd_tail(t_st **tail, t_st *stack_a)
+{
+	if (tail == NULL || stack_a = NULL)
+		return ;
+	**tail->next = stack_a;
+	*tail = stack_a;
+
+ void	sa(tail_a)

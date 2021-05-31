@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/05/30 22:21:57 by dim              ###   ########.fr       */
+/*   Updated: 2021/05/31 20:07:42 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct s_lst
+{
+	int			count;
+	struct t_st *tail;
+}	t_lst;
+
 typedef struct s_st
 {
 	int			num;
 	struct s_st	*next;
 }	t_st;
+
