@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/05/31 20:07:42 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/01 19:09:38 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_lst
 {
-	int			count;
+	int			size;
 	struct t_st *tail;
 }	t_lst;
 
@@ -26,5 +26,6 @@ typedef struct s_st
 {
 	int			num;
 	struct s_st	*next;
+	struct s_st *prev;
 }	t_st;
 

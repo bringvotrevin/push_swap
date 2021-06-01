@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/01 11:48:28 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/01 19:21:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,31 @@
 
 void	push_swap(int argc, char *argv[])
 {
-	t_lst	tail_a;
-	t_lst	tail_b;
+	t_lst	*tail_a;
 
-	tail_a = NULL;
-	if (argc < 2)
+	tail_a = ft_lstnew_t();
+	if (argc < 2 || tail_a == NULL)
 		return (0);
 	check_error();
-	parse(argc, argv, &tail_a);
+	parse(argc, argv, tail_a);
 	return (0);
 }
 
-void	parse(int argc, char **argv, t_st *tail_a)
+t_lst	ft_lstnew_t(void)
 {
-	t_st	*newn;
+	t_lst	*lst;
+
+	lst = (t_lst *)malloc(sizeof(t_lst));
+	if (tail_a == NULL)
+		return (0);
+	lst->size = 0;
+	lst->tail = NULL;
+	return (lst);
+}
+
+void	parse(int argc, char **argv, t_lst *tail_a)
+{
+	t_st	*new;
 	int		i;
 	char	*num;
 
@@ -35,19 +46,24 @@ void	parse(int argc, char **argv, t_st *tail_a)
 	while (argv[i])
 	{
 		num = ft_atol(argv[i]);
-		stack_a = ft_lstnew(num);
+		new = ft_lstnew(num);
 		ft_lstadd_tail(tail_a, new); 
 	}
-	tail_a->tail = stack_a;
 }
 
-void	ft_lstadd_tail(t_st *tail, t_st *stack_a)
+void	ft_lstadd_tail(t_lst *tail_lst, t_st *lst)
 {
-	if (tail == NULL || stack_a = NULL)
+	if (tail_lst == NULL || lst = NULL)
 		return ;
-	tail->next = stack_a;
-	*tail = stack_a;
+	if (tail_lst->tail == NULL)
+		tail_lst->tail = lst;
+	else
+	{
+		tail_lst->tail->next = lst;
+		tail_lst->tail = lst;
+	}
+}
 
  void	sa(tail_a)
- {
+{
 
