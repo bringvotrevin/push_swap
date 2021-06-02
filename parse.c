@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/02 17:51:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/03 03:32:37 by ids              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,39 @@ t_lst	ft_lstnew_t(void)
 void	parse(int argc, char **argv, t_lst *tail_a)
 {
 	t_st	*new;
+	char	*str;
 	char	*num;
 	int		i;
 
 	i = 0;
 	while (argv[i])
 	{
+		str = check_str(argv[i]);
+
 		num = ft_atol(argv[i]);
+		if (num > 2147483647 || num < -2147483648)
+			return (//error);
 		new = ft_lstnew(num);
 		ft_lstadd_tail(tail_a, new);
 		tail_a->count++;
 		i++;
+	}
+}
+
+char	*check_str(char *str)
+{
+	char	*str;
+
+	str = ft_split();
+
+
+
+
+	
+	if (str != ".")
+	{
+		str = check_str(str);
+		return (str);
 	}
 }
 
@@ -72,84 +94,3 @@ void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
 		tail_lst->tail = new;
 	}
 }
-
-void	ft_swap(t_st *stack)
-{
-	int		temp;
-
-	temp = stack->next->num;
-	stack->next->num = stack->next->next->num;
-	stack->next->next->num = temp;
-}
-
-void	sa(t_lst *tail_a)
-{
-	ft_swap(tail_a->tail);
-	write(1, "sa\n", 3);
-}
-
-void	sb(t_lst *tail_b)
-{
-	ft_swap(tail_b->tail);
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_lst *tail_a, t_lst *tail_b)
-{
-	ft_swap(tail_a->tail);
-	ft_swap(tail_b->tail);
-	write(1, "ss\n", 3);
-}
-
-void	ft_rotate(t_lst *tail_lst)
-{
-	tail_lst->tail = tail_lst->tail->next;
-}
-
-void	ra(t_lst *tail_a)
-{
-	ft_rotate(tail_a);
-	write(1, "ra\n", 3);
-}
-
-void	rb(t_lst *tail_b)
-{
-	ft_rotate(tail_b);
-	write(1. "rb\n" 3);
-}
-
-void	rr(t_lst *tail_a, t_lst *tail_b)
-{
-	ft_rotate(tail_a);
-	ft_rotate(tail_b);
-	write(1, "rr\n", 3);
-}
-
-void	ft_rev_rotate(t_lst *tail_lst)
-{
-	tail_lst->tail = tail_lst->tail->prev;
-}
-
-void	rra(t_lst *tail_a)
-{
-	ft_rev_rotate(tail_a);
-	write(1, "rra\n", 4);
-}
-
-void	rrb(t_lst *tail_b)
-{
-	ft_rev_rotate(tail_b);
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_lst *tail_a, t_lst *tail_b)
-{
-	ft_rev_rotate(tail_a);
-	ft_rev_rotate(tail_b);
-	write(1, "rrr\n", 4);
-}
-
-void	ft_push(t_st *stack_loss, t_st *stack_gain)
-{
-
-
