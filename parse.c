@@ -6,7 +6,7 @@
 /*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/03 03:32:37 by ids              ###   ########.fr       */
+/*   Updated: 2021/06/06 13:05:59 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,8 @@ void	parse(int argc, char **argv, t_lst *tail_a)
 
 char	*check_str(char *str)
 {
-	char	*str;
 
-	str = ft_split();
-
-
-
-
-	
+	str = ft_split(str, " ");
 	if (str != ".")
 	{
 		str = check_str(str);
