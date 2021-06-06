@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/06 22:05:50 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/07 03:43:58 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	parse(char **argv, t_lst *tail_a)
 {
 	t_st	*new;
 	char	**arr;
-	char	*num;
+	int		num;
 	int		i;
 	int		j;
 
@@ -49,34 +49,59 @@ void	parse(char **argv, t_lst *tail_a)
 	j = 0;
 	while (argv[i])
 	{
-		arr = check_str(argv[i]);
+		arr = make_arr(argv[i]);
 		while (arr[j])
 		{
-			num = ft_atol();
-			if (num > 2147483647 || num < -2147483648)
-				error();
-			new = ft_lstnew(num);
+			num = ft_atol(arr[j]);
+			over_range(num);
+			new = ft_lstnew_s(num);
 			ft_lstadd_tail(tail_a, new);
-			tail_a->count++;
+			j++;
 		}
-		mem_free(arr);
+		memfree(arr);
 		i++;
 	}
 }
 
-t_st	ft_lstnew(int num)
+void	over_range(int num)
 {
+	if (num > 2147483647 || num < -2147483648)
+		rt_error();
 }
 
-void	mem_free()
+t_st	ft_lstnew_s(int number)
 {
+	t_st	*lst;
+
+	lst = (t_st *)malloc(sizeof(t_st));
+	if (lst == NULL)
+		return (NULL);
+	lst->num = number;
+	lst->next = NULL;
+	lst->prev = NULL;
+	return (lst);
 }
 
-void	error()
+void	memfree(char **arr)
 {
+	int		i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
 }
 
-char	**check_str(char *str)
+void	rt_error(char **arr)
+{
+	memfree(arr);
+	write(2, "Error\n", 6);
+	exit();
+}
+
+char	**make_arr(char *str)
 {
 	char	**arr;
 	int		i;
@@ -85,20 +110,28 @@ char	**check_str(char *str)
 	arr = NULL;
 	arr = ft_split(str, ' ');
 	if (arr == NULL || arr[0] == NULL)
-		error();
+		rt_error(arr);
+	check_overlen(arr);
+	return (arr);
+}
+
+void	check_overlen(char **arr)
+{
+	int		i;
+
+	i = 0;
 	while (arr[i])
 	{
 		if (ft_strlen(arr[i]) > 11)
-			error();
+			rt_error(arr);
 		i++;
 	}
 }
 
-//void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
-void	ft_lstadd_tail(t_st **tail, t_st *new)
+void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
 {
 	if (tail_lst == NULL || new = NULL)
-		return ;
+		rt_error(//??);
 	if (tail_lst->tail == NULL)
 	{
 		tail_lst->tail = new;
@@ -113,4 +146,5 @@ void	ft_lstadd_tail(t_st **tail, t_st *new)
 		tail_lst->tail->next = new;
 		tail_lst->tail = new;
 	}
+	tail_lst->size++;
 }
