@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/06 13:05:59 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/06 22:05:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
 	t_lst	*tail_a;
 
 	tail_a = ft_lstnew_t();
 	if (argc < 2 || tail_a == NULL)
 		return (0);
-	check_error();
-	parse(argc, argv, tail_a);
+	parse(argv, tail_a);
+
+
 	return (0);
 }
 
@@ -36,40 +37,65 @@ t_lst	ft_lstnew_t(void)
 	return (lst);
 }
 
-void	parse(int argc, char **argv, t_lst *tail_a)
+void	parse(char **argv, t_lst *tail_a)
 {
 	t_st	*new;
-	char	*str;
+	char	**arr;
 	char	*num;
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	while (argv[i])
 	{
-		str = check_str(argv[i]);
-
-		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
-			return (//error);
-		new = ft_lstnew(num);
-		ft_lstadd_tail(tail_a, new);
-		tail_a->count++;
+		arr = check_str(argv[i]);
+		while (arr[j])
+		{
+			num = ft_atol();
+			if (num > 2147483647 || num < -2147483648)
+				error();
+			new = ft_lstnew(num);
+			ft_lstadd_tail(tail_a, new);
+			tail_a->count++;
+		}
+		mem_free(arr);
 		i++;
 	}
 }
 
-char	*check_str(char *str)
+t_st	ft_lstnew(int num)
 {
+}
 
-	str = ft_split(str, " ");
-	if (str != ".")
+void	mem_free()
+{
+}
+
+void	error()
+{
+}
+
+char	**check_str(char *str)
+{
+	char	**arr;
+	int		i;
+
+	i = 0;
+	arr = NULL;
+	arr = ft_split(str, ' ');
+	if (arr == NULL || arr[0] == NULL)
+		error();
+	while (arr[i])
 	{
-		str = check_str(str);
-		return (str);
+		if (ft_strlen(arr[i]) > 11)
+			error();
+		i++;
 	}
 }
 
-void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
+//void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
+void	ft_lstadd_tail(t_st **tail, t_st *new)
 {
 	if (tail_lst == NULL || new = NULL)
 		return ;
