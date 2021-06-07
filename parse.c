@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/07 03:43:58 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/07 17:23:11 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,8 @@ int		main(int argc, char *argv[])
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-
-
+	//free_lst(tail_a);
 	return (0);
-}
-
-t_lst	ft_lstnew_t(void)
-{
-	t_lst	*lst;
-
-	lst = (t_lst *)malloc(sizeof(t_lst));
-	if (tail_a == NULL)
-		return (0);
-	lst->size = 0;
-	lst->tail = NULL;
-	return (lst);
 }
 
 void	parse(char **argv, t_lst *tail_a)
@@ -46,57 +33,26 @@ void	parse(char **argv, t_lst *tail_a)
 	int		j;
 
 	i = 0;
-	j = 0;
 	while (argv[i])
 	{
 		arr = make_arr(argv[i]);
+		j = 0;
 		while (arr[j])
 		{
 			num = ft_atol(arr[j]);
-			over_range(num);
+			isover_range(num, arr);
 			new = ft_lstnew_s(num);
 			ft_lstadd_tail(tail_a, new);
+			free(arr[j]);
 			j++;
 		}
-		memfree(arr);
+		free(arr);
 		i++;
 	}
 }
 
-void	over_range(int num)
+void	rt_error(void)
 {
-	if (num > 2147483647 || num < -2147483648)
-		rt_error();
-}
-
-t_st	ft_lstnew_s(int number)
-{
-	t_st	*lst;
-
-	lst = (t_st *)malloc(sizeof(t_st));
-	if (lst == NULL)
-		return (NULL);
-	lst->num = number;
-	lst->next = NULL;
-	lst->prev = NULL;
-	return (lst);
-}
-
-void	memfree(char **arr)
-{
-	int		i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-}
-
-void	rt_error(char **arr)
-{
-	memfree(arr);
 	write(2, "Error\n", 6);
 	exit();
 }
@@ -115,6 +71,12 @@ char	**make_arr(char *str)
 	return (arr);
 }
 
+void	isover_range(int num, char **arr)
+{
+	if (num > 2147483647 || num < -2147483648)
+		rt_error(arr);
+}
+
 void	check_overlen(char **arr)
 {
 	int		i;
@@ -123,28 +85,9 @@ void	check_overlen(char **arr)
 	while (arr[i])
 	{
 		if (ft_strlen(arr[i]) > 11)
-			rt_error(arr);
+		{
+			memfree(
+			rt_error();
 		i++;
 	}
-}
-
-void	ft_lstadd_tail(t_lst *tail_lst, t_st *new)
-{
-	if (tail_lst == NULL || new = NULL)
-		rt_error(//??);
-	if (tail_lst->tail == NULL)
-	{
-		tail_lst->tail = new;
-		tail_lst->tail->next = new;
-		tail_lst->tail->prev = new;
-	}
-	else
-	{
-		new->prev = tail_lst->tail;
-		new->next = tail_lst->tail->next;
-		tail_lst->tail->next->prev = new;
-		tail_lst->tail->next = new;
-		tail_lst->tail = new;
-	}
-	tail_lst->size++;
 }
