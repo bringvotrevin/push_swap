@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst.c                                           :+:      :+:    :+:   */
+/*   util_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:41:09 by dim               #+#    #+#             */
-/*   Updated: 2021/06/07 15:16:18 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 02:58:31 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ t_st	ft_lstnew_s(int number)
 	return (lst);
 }
 
-void	ft_lstadd_tail(t_lst *tail_lst, t_lst *new)
+void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_lst *new)
 {
 	if (tail_lst == NULL || new == NULL)
-		rt_error(//?);
+		rt_error(arr, tail_lst);
 	if (tail_lst->tail == NULL)
 	{
 		tail->lst->tail = new;

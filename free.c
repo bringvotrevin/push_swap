@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:37:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/07 17:33:49 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 02:23:01 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	memfree(char **arr, t_lst *tail_a)
 {
-	free(arr);
+	if (arr)
+		free_arr(arr);
+	if (tail_a)
+		free_lst(tail_a);
 }
 
 
