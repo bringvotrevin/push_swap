@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   util_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:41:09 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 02:58:31 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 16:36:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst	ft_lstnew_t(void)
+t_lst	*ft_lstnew_t(void)
 {
 	t_lst	*lst;
 
@@ -24,7 +24,7 @@ t_lst	ft_lstnew_t(void)
 	return (lst);
 }
 
-t_st	ft_lstnew_s(int number)
+t_st	*ft_lstnew_s(int number)
 {
 	t_st	*lst;
 

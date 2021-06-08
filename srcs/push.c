@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/03 03:14:29 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 13:53:35 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_push(t_st *stack_loss, t_st *stack_gain)
 	head_loss->prev = stack_gain->tail;
 	head_loss->next = head_gain;
 	head_gain->prev = head_loss;
+	stack_loss->size--;
+	stack_gain->size++;
 }
 
 void	pa(t_st *tail_a, t_st *tail_b)

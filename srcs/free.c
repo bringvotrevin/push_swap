@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:37:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 02:23:01 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 16:30:29 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void	memfree(char **arr, t_lst *tail_a)
 {

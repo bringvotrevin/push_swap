@@ -6,11 +6,12 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 02:59:34 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/08 16:31:47 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "util.h"
 #include <stdio.h>
 
 int		main(int argc, char *argv[])
@@ -21,6 +22,7 @@ int		main(int argc, char *argv[])
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
+	pirnttail(tail_a);
 	free_lst(tail_a);
 	return (0);
 }
@@ -74,7 +76,7 @@ void	rt_error(char **arr, t_lst *tail_lst)
 	if (arr == NULL && tail_lst)
 		memfree((char **)NULL, tail_lst);
 	write(2, "Error\n", 6);
-	exit();
+	exit(1);
 }
 
 char	**make_arr(char *str, t_lst *tail_a)
