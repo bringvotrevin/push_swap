@@ -12,20 +12,8 @@
 
 #include "push_swap.h"
 #include "util.h"
-#include <stdio.h>
+#include "lst.h"
 
-int		main(int argc, char *argv[])
-{
-	t_lst	*tail_a;
-
-	tail_a = ft_lstnew_t();
-	if (argc < 2 || tail_a == NULL)
-		return (0);
-	parse(argv, tail_a);
-	pirnttail(tail_a);
-	free_lst(tail_a);
-	return (0);
-}
 
 void	printtail(t_lst *tail_a)
 {
@@ -34,7 +22,7 @@ void	printtail(t_lst *tail_a)
 	cur = tail_a->tail;
 	while (tail_a->size--)
 	{
-		printf("lst->num : %d\n", cur->next);
+		printf("lst->num : %d\n", cur->next->num);
 		cur = cur->next;
 	}
 }
@@ -67,7 +55,7 @@ void	parse(char **argv, t_lst *tail_a)
 	}
 }
 
-void	rt_error(char **arr, t_lst *tail_lst)
+void	rt_error(char *arr, t_lst *tail_lst)
 {
 	if (arr && tail_lst)
 		memfree(arr, tail_lst);
@@ -114,4 +102,17 @@ void	check_overlen(char **arr, t_lst *tail_lst)
 			rt_error(arr, tail_lst);
 		i++;
 	}
+}
+
+int		main(int argc, char *argv[])
+{
+	t_lst	*tail_a;
+
+	tail_a = ft_lstnew_t();
+	if (argc < 2 || tail_a == NULL)
+		return (0);
+	parse(argv, tail_a);
+	pirnttail(tail_a);
+	free_lst(tail_a);
+	return (0);
 }

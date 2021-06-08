@@ -22,7 +22,7 @@ SRCS =	$(addprefix $(SRCDIR), $(FILES))
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME) : $(OBJS)
+$(NAME) : ${OBJS}
 		make -C $(LIB)libft
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
 

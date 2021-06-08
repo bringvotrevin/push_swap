@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 16:42:57 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/09 02:44:03 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,5 @@ void	ft_rev_rotate(t_lst *tail_lst);
 void	rra(t_lst *tail_a);
 void	rrb(t_lst *tail_b);
 void	rrr(t_lst *tail_a, t_lst *tail_b);
+
+#endif
