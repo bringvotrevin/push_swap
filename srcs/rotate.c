@@ -26,7 +26,7 @@ void	ra(t_lst *tail_a)
 void	rb(t_lst *tail_b)
 {
 	ft_rotate(tail_b);
-	write(1. "rb\n" 3);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_lst *tail_a, t_lst *tail_b)

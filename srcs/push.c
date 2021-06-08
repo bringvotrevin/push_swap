@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_push(t_st *stack_loss, t_st *stack_gain)
+void	ft_push(t_lst *stack_loss, t_lst *stack_gain)
 {
 	t_st	*head_loss;
 	t_st	*head_gain;
@@ -30,13 +30,13 @@ void	ft_push(t_st *stack_loss, t_st *stack_gain)
 	stack_gain->size++;
 }
 
-void	pa(t_st *tail_a, t_st *tail_b)
+void	pa(t_lst *tail_a, t_lst *tail_b)
 {
 	ft_push(tail_b, tail_a);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_st *tail_a, t_st *tail_b)
+void	pb(t_lst *tail_a, t_lst *tail_b)
 {
 	ft_push(tail_a, tail_b);
 	write(1, "pb\n", 3);

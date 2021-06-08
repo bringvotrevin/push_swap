@@ -31,9 +31,9 @@ typedef struct s_st
 	struct s_st *prev;
 }	t_st; */
 
-void	ft_push(t_st *stack_loss, t_st *stack_gain);
-void	pa(t_st *tail_a, t_st *tail_b);
-void	pb(t_st *tail_a, t_st *tail_b);
+void	ft_push(t_lst *stack_loss, t_lst *stack_gain);
+void	pb(t_lst *tail_a, t_lst *tail_b);
+void	pa(t_lst *tail_a, t_lst *tail_b);
 void	ft_swap(t_st *stack);
 void	sa(t_lst *tail_a);
 void	sb(t_lst *tail_b);

@@ -17,17 +17,18 @@
 # include <stdlib.h>
 # include <stdio.h> //remove it!@#$%$^%&^*&(&*^&%^$#$@!@~
 
-typedef struct s_lst
-{
-	int			size;
-	struct t_st *tail;
-}	t_lst;
-
 typedef struct s_st
 {
-	int			num;
-	struct s_st	*next;
-	struct s_st *prev;
+	int				num;
+	struct s_st		*next;
+	struct s_st		*prev;
 }	t_st;
+
+typedef struct s_lst
+{
+	int				size;
+	t_st		*tail;
+}	t_lst;
+
 
 #endif

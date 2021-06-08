@@ -37,15 +37,15 @@ t_st	*ft_lstnew_s(int number)
 	return (lst);
 }
 
-void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_lst *new)
+void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_st *new)
 {
 	if (tail_lst == NULL || new == NULL)
 		rt_error(arr, tail_lst);
 	if (tail_lst->tail == NULL)
 	{
-		tail->lst->tail = new;
-		tail->lst->tail->next = new;
-		tail->lst->tail->prev = new;
+		tail_lst->tail = new;
+		tail_lst->tail->next = new;
+		tail_lst->tail->prev = new;
 	}
 	else
 	{

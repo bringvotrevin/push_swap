@@ -20,6 +20,7 @@ void	free_arr(char **arr);
 void	free_lst(t_lst *tail_lst);
 t_lst	*ft_lstnew_t(void);
 t_st	*ft_lstnew_s(int number);
-void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_lst *new);
+void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_st *new);
+void	rt_error(char **arr, t_lst *tail_lst);
 
 #endif

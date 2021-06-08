@@ -2,7 +2,7 @@
 NAME = push_swap
 HEADER = includes
 SRCDIR = srcs/
-LIBS = lib/
+LIB = lib/
 CC = gcc
 RM = rm -rf
 WFLAGS = -Wall -Werror -Wextra
@@ -22,17 +22,18 @@ SRCS =	$(addprefix $(SRCDIR), $(FILES))
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME) : ${OBJS}
-		make -C $(LIB)libft
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
+${NAME} :	${OBJS}
+			make -C $(LIB)libft
+			$(CC) $(CFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
 
-all : $(NAME)
+all :		${NAME}
 
+clean :     
+			make clean -C $(LIB)libft
+			${RM} ${OBJS}
 
-clean :
-	make clean -C $(LIB)libft
-	${RM} ${OBJS}
-fclean : clean
-	make fclean -C $(LIB)libft
-	${RM} ${NAME}
-re : fclean all
+fclean :	clean
+			make fclean -C $(LIB)libft
+			${RM} ${NAME}
+
+re :		fclean all

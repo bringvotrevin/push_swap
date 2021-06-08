@@ -37,8 +37,8 @@ void	free_arr(char **arr)
 
 void	free_lst(t_lst *tail_lst)
 {
-	t_st	cur;
-	t_st	cur2;
+	t_st	*cur;
+	t_st	*cur2;
 
 	cur = tail_lst->tail;
 	while (tail_lst->size--)
