@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:37:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 16:30:29 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/09 16:43:57 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	free_lst(t_lst *tail_lst)
 	cur = tail_lst->tail;
 	while (tail_lst->size--)
 	{
-		cur2 = cur->next;
+		if (tail_lst->size != 0)
+			cur2 = cur->next;
+		else
+			cur2 = NULL;
 		free(cur);
 		cur = cur2;
 	}

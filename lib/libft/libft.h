@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 02:33:16 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 04:05:07 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/09 17:09:46 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
+char				**ft_split_str(char const *s, char *sep);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s);
 char				*ft_strjoin(char const *s1, char const *s2);

@@ -26,6 +26,7 @@ SRCS = ft_atoi.c \
 	   ft_putnbr_fd.c \
 	   ft_putstr_fd.c \
 	   ft_split.c \
+	   ft_split_str.c \
 	   ft_strchr.c \
 	   ft_strdup.c \
 	   ft_strjoin.c \
@@ -62,6 +63,7 @@ OBJS = ft_atoi.o \
 	   ft_putnbr_fd.o \
 	   ft_putstr_fd.o \
 	   ft_split.o \
+	   ft_split_str.o \
 	   ft_strchr.o \
 	   ft_strdup.o \
 	   ft_strjoin.o \

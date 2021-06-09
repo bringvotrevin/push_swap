@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 16:31:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/09 17:15:10 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	printtail(t_lst *tail_a)
 	cur = tail_a->tail->next;
 	while (tail_a->size--)
 	{
-		printf("lst->num : %d\n", cur->num);
+		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
 }
@@ -71,7 +71,8 @@ char	**make_arr(char *str, t_lst *tail_a)
 
 	i = 0;
 	arr = NULL;
-	arr = ft_split(str, ' ');
+	printf("strb : %s\n", str);
+	arr = ft_split_str(str, " ");
 	if (arr == NULL || arr[0] == NULL)
 		rt_error(arr, tail_a);
 	check_overlen(arr, tail_a);
@@ -80,13 +81,13 @@ char	**make_arr(char *str, t_lst *tail_a)
 
 void	parse(char **argv, t_lst *tail_a)
 {
-	t_st	*new;
-	char	**arr;
-	int		num;
-	int		i;
-	int		j;
+	t_st		*new;
+	char		**arr;
+	long long	num;
+	int			i;
+	int			j;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		arr = make_arr(argv[i], tail_a);
@@ -94,6 +95,7 @@ void	parse(char **argv, t_lst *tail_a)
 		while (arr[j])
 		{
 			num = ft_atol(arr[j]);
+			printf("num : %lld\n", num);
 			if (num > 2147483647 || num < -2147483648)
 				rt_error(arr, tail_a);
 			new = ft_lstnew_s(num);
