@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/10 21:28:13 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/10 22:12:41 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include "lst.h"
 
-void	printtail(t_lst *tail_a)
+/* void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
 	int		size;
@@ -26,27 +26,7 @@ void	printtail(t_lst *tail_a)
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
-}
-
-void	rt_error(char **arr, t_lst *tail_lst)
-{
-	if (arr && tail_lst)
-		memfree(arr, tail_lst);
-	else if (arr && tail_lst == NULL)
-		memfree(arr, (t_lst *)NULL);
-	else if (arr == NULL && tail_lst)
-		memfree((char **)NULL, tail_lst);
-	write(2, "Error\n", 6);
-	exit(-1);
-}
-
-/*
-void	isover_range(int num, char **arr, )
-{
-	if (num > 2147483647 || num < -2147483648)
-		rt_error(arr, tail_lst);
-}
-*/
+} */
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -78,6 +58,23 @@ char	**make_arr(char *str, t_lst *tail_a)
 	return (arr);
 }
 
+void	check_repeat_num(t_lst *tail_a)
+{
+	int		num;
+	int		size;
+	t_st	stack;
+
+	size = tail_a->size;
+	stack = tail_a->tail;
+	if (size--)
+	{
+		num = tail_a->tail;
+
+	}
+
+	while 
+}
+
 void	parse(char **argv, t_lst *tail_a)
 {
 	t_st		*new;
@@ -98,13 +95,12 @@ void	parse(char **argv, t_lst *tail_a)
 				rt_error(arr, tail_a);
 			new = ft_lstnew_s(num);
 			ft_lstadd_tail(arr, tail_a, new);
-			// free(arr[j]);
-			// arr[j] = NULL;1234567890-09876543
 			j++;
 		}
 		free_arr(arr);
 		i++;
 	}
+		ckeck_repeat_num(tail_a);
 }
 
 int		main(int argc, char *argv[])
@@ -115,7 +111,7 @@ int		main(int argc, char *argv[])
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-	printtail(tail_a);
+	// printtail(tail_a);
 	free_lst(tail_a);
 	return (0);
 }
