@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 17:15:10 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/10 21:28:13 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,31 @@
 #include "util.h"
 #include "lst.h"
 
-
 void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
+	int		size;
 
+	size = tail_a->size;
 	cur = tail_a->tail->next;
-	while (tail_a->size--)
+	while (size--)
 	{
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
 }
 
-
 void	rt_error(char **arr, t_lst *tail_lst)
 {
 	if (arr && tail_lst)
 		memfree(arr, tail_lst);
-	if (arr && tail_lst == NULL)
+	else if (arr && tail_lst == NULL)
 		memfree(arr, (t_lst *)NULL);
-	if (arr == NULL && tail_lst)
+	else if (arr == NULL && tail_lst)
 		memfree((char **)NULL, tail_lst);
 	write(2, "Error\n", 6);
-	exit(1);
+	exit(-1);
 }
-
 
 /*
 void	isover_range(int num, char **arr, )
@@ -58,7 +57,8 @@ void	check_overlen(char **arr, t_lst *tail_lst)
 	len = 0;
 	while (arr[i])
 	{
-		if ((len = ft_strlen(arr[i])) > 11) //len없어도 가능?
+		len = ft_strlen(arr[i]);
+		if (len > 11)
 			rt_error(arr, tail_lst);
 		i++;
 	}
@@ -71,7 +71,6 @@ char	**make_arr(char *str, t_lst *tail_a)
 
 	i = 0;
 	arr = NULL;
-	printf("strb : %s\n", str);
 	arr = ft_split_str(str, " ");
 	if (arr == NULL || arr[0] == NULL)
 		rt_error(arr, tail_a);
@@ -95,15 +94,15 @@ void	parse(char **argv, t_lst *tail_a)
 		while (arr[j])
 		{
 			num = ft_atol(arr[j]);
-			printf("num : %lld\n", num);
 			if (num > 2147483647 || num < -2147483648)
 				rt_error(arr, tail_a);
 			new = ft_lstnew_s(num);
 			ft_lstadd_tail(arr, tail_a, new);
-			free(arr[j]);
+			// free(arr[j]);
+			// arr[j] = NULL;1234567890-09876543
 			j++;
 		}
-		free(arr);
+		free_arr(arr);
 		i++;
 	}
 }

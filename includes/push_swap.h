@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 02:44:03 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/10 21:30:28 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,6 @@
 # include "util.h"
 # include "lst.h"
 # include "libft.h"
-/* typedef struct s_lst
-{
-	int			size;
-	struct t_st *tail;
-}	t_lst;
-
-typedef struct s_st
-{
-	int			num;
-	struct s_st	*next;
-	struct s_st *prev;
-}	t_st; */
 
 void	ft_push(t_lst *stack_loss, t_lst *stack_gain);
 void	pb(t_lst *tail_a, t_lst *tail_b);

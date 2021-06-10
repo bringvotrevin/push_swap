@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:25:40 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 02:44:11 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/10 19:34:26 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "lst.h"
 
-void	memfree(char **arr, t_lst *tail_a);
+void	memfree(char **arr, t_lst *tail_lst);
 void	free_arr(char **arr);
 void	free_lst(t_lst *tail_lst);
 t_lst	*ft_lstnew_t(void);
