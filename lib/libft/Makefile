@@ -6,7 +6,7 @@ NAME = libft.a
 AR = ar rcs
 
 SRCS = ft_atoi.c \
-	   ft_atol.c \
+	   ft_atoll.c \
 	   ft_bzero.c \
 	   ft_calloc.c \
 	   ft_isalnum.c \
@@ -43,7 +43,7 @@ SRCS = ft_atoi.c \
 	   ft_toupper.c
 
 OBJS = ft_atoi.o \
-	   ft_atol.o \
+	   ft_atoll.o \
        ft_bzero.o \
 	   ft_calloc.o \
 	   ft_isalnum.o \

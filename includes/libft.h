@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 02:33:16 by dim               #+#    #+#             */
-/*   Updated: 2021/06/10 20:15:03 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/11 17:07:28 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
-long long			ft_atol(const char *str);
+long long			ft_atoll(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t n, size_t size);
 int					ft_isalnum(int c);

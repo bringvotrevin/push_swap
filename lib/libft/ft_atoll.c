@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:39:12 by dim               #+#    #+#             */
-/*   Updated: 2021/06/10 20:25:28 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/11 17:07:30 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int			ft_isspace(const char c)
 	 return ((c >= 9 && c <= 13) || c == ' ');
 }
 
-long long	ft_atol(const char *str)
+
+long long	ft_atoll(const char *str)
 {
 	long long	num;
 	int			minus;
@@ -30,9 +31,10 @@ long long	ft_atol(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			minus = -1;
-		i++;
+		if (str[i] < '0' || str[i] > '9')
+			return (123456789123456789);
 	}
 	while ((str[i] >= '0' && str[i] <= '9'))
 	{

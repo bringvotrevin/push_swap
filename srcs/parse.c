@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/11 16:10:05 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/11 17:08:01 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include "lst.h"
 
-void	printtail(t_lst *tail_a)
+/* void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
 	int		size;
@@ -26,7 +26,7 @@ void	printtail(t_lst *tail_a)
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
-}
+} */
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -97,7 +97,7 @@ void	parse(char **argv, t_lst *tail_a)
 		j = 0;
 		while (arr[j])
 		{
-			num = ft_atol(arr[j]);
+			num = ft_atoll(arr[j]);
 			if (num > 2147483647 || num < -2147483648)
 				rt_error(arr, tail_a);
 			new = ft_lstnew_s(num);
@@ -118,7 +118,7 @@ int		main(int argc, char *argv[])
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-	printtail(tail_a);
+	/* printtail(tail_a); */
 	free_lst(tail_a);
 	return (0);
 }
