@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/10 22:23:00 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/11 16:10:05 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include "lst.h"
 
-/* void	printtail(t_lst *tail_a)
+void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
 	int		size;
@@ -26,7 +26,7 @@
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
-} */
+}
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -58,20 +58,28 @@ char	**make_arr(char *str, t_lst *tail_a)
 	return (arr);
 }
 
-void	check_repeat_num(t_lst *tail_a)
+void	check_repeatnum(t_lst *tail_a)
 {
-	int		num;
 	int		size;
-	t_st	stack;
+	int		size2;
+	t_st	*cur;
+	t_st	*compare;
 
 	size = tail_a->size;
-	stack = tail_a->tail;
-	if (size--)
+	cur = tail_a->tail;
+	size2 = 0;
+	while (size-- > 1)
 	{
-		num = tail_a->tail;
+		size2 = size;
+		compare = cur->next;
+		while (size2-- > 0)
+		{
+			if (cur->num == compare->num)
+				rt_error((char **)NULL, tail_a);
+			compare = compare->next;
+		}
+		cur = cur->next;
 	}
-
-	while 
 }
 
 void	parse(char **argv, t_lst *tail_a)
@@ -99,7 +107,7 @@ void	parse(char **argv, t_lst *tail_a)
 		free_arr(arr);
 		i++;
 	}
-		ckeck_repeat_num(tail_a);
+	check_repeatnum(tail_a);
 }
 
 int		main(int argc, char *argv[])
@@ -110,7 +118,7 @@ int		main(int argc, char *argv[])
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-	// printtail(tail_a);
+	printtail(tail_a);
 	free_lst(tail_a);
 	return (0);
 }
