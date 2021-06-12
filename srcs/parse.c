@@ -6,13 +6,14 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/11 22:17:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/12 20:52:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "util.h"
 #include "lst.h"
+#include "push_swap_util.h"
 
 /* void	printtail(t_lst *tail_a)
 {
@@ -113,13 +114,17 @@ void	parse(char **argv, t_lst *tail_a)
 int		main(int argc, char *argv[])
 {
 	t_lst	*tail_a;
+	int		i;
 
 	tail_a = ft_lstnew_t();
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-	push_swap();
+	i = push_swap(tail_a);
+	if (i == 0)
+		return (0);
 	/* printtail(tail_a); */
+	
 	free_lst(tail_a);
 	return (0);
 }

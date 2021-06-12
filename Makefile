@@ -16,7 +16,8 @@ FILES = parse.c \
 		rotate.c \
 		reverse_rotate.c \
 		util_lst.c \
-		free.c
+		free.c \
+		three_input.c
 
 SRCS =	$(addprefix $(SRCDIR), $(FILES))
 
