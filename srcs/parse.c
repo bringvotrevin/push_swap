@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/12 20:52:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/15 02:39:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "lst.h"
 #include "push_swap_util.h"
 
-/* void	printtail(t_lst *tail_a)
+void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
 	int		size;
@@ -27,7 +27,7 @@
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
-} */
+}
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -123,7 +123,7 @@ int		main(int argc, char *argv[])
 	i = push_swap(tail_a);
 	if (i == 0)
 		return (0);
-	/* printtail(tail_a); */
+	printtail(tail_a);
 	
 	free_lst(tail_a);
 	return (0);
