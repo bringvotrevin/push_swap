@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/15 03:11:02 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/15 03:42:37 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,21 +75,39 @@ int		three_input(t_lst *tail_a, t_lst *tail_b)
 {
 	t_st	*min;
 	t_st	*max;
-	int		i;
+//	int		i;
 	
 	min = check_min(tail_a);
 	max = check_max(tail_a);
 	// printf("min : %lld, max : %lld\n", min->num, max->num);
-	if (min->next != max)
+	/*i = check_ascending(tail_a, tail_b);
+	if (min->next != max && i == 1)
 		sa(tail_a);
 	i = check_ascending(tail_a, tail_b);
 	if (min->next == max && i == 1)
 		ra(tail_a);
 	i = check_ascending(tail_a, tail_b);
 	if (i == 0)
-		return (1);₩
+		return (1);
 	three_input(tail_a, tail_b);
-	return (1);
+	return (1); */
+
+/* 	if (min->next == max && check_ascending(tail_a, tail_b))
+		sa(tail_a);
+	if (check_ascending(tail_a, tail_b))
+		ra(tail_a);
+	if (check_ascending(tail_a, tail_b))
+		ra(tail_a); // working!!!!!! */ 
+	while (check_ascending(tail_a, tail_b))
+	{
+		if ((min->next == max) && check_ascending(tail_a, tail_b))
+			sa(tail_a);
+		printf("min : %lld, max : %lld\n", min->num, max->num);
+		if ((min ->next != max) && check_ascending(tail_a, tail_b))
+			ra(tail_a);
+		printf("min : %lld, max : %lld\n", min->num, max->num);
+	}
+	return (0);
 }
 
 void	count_input(t_lst *tail_a, t_lst *tail_b)
