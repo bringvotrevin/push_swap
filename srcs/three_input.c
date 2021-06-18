@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap_util.h"
-#include "lst.h"
-#include "util.h"
+
 
 t_st	*check_min(t_lst *tail_a, int size)
 {
@@ -73,12 +72,12 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	min = check_min(tail_a, 3);
 	max = check_max(tail_a, 3);
 	// printf("min : %lld, max : %lld\n", min->num, max->num);
-/* 	if (min->next == max && check_ascending(tail_a, tail_b))
+	if (min->next == max && check_ascending(tail_a, tail_b))
 		sa(tail_a);
 	if (min == tail_a->tail && check_ascending(tail_a, tail_b))
 		rra(tail_a);
 	if (check_ascending(tail_a, tail_b))
-		ra(tail_a); // working */
+		ra(tail_a); // working
 /* 	if (min->next == max && check_ascending(tail_a, tail_b))
 		sa(tail_a);
 	if (check_ascending(tail_a, tail_b))
@@ -87,12 +86,12 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 		ra(tail_a); 
 	return (0); // working!!!!!! */ 
 
-	if ((min->next == max || max->next->next == min))
+/* 	if ((min->next == max || max->next->next == min))
 		sa(tail_a);
 	if (tail_a->tail->next->next->next == min && check_ascending(tail_a, tail_b))
 		rra(tail_a);
 	if (check_ascending(tail_a, tail_b))
-		ra(tail_a);
+		ra(tail_a); two_input error */
 
 /* 	while (check_ascending(tail_a, tail_b))
 	{
@@ -103,23 +102,12 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	} // 3 2 1 Case fail */
 }
 
-int		five_input(t_lst *tail_a, t_lst *tail_b)
-{
-	int		*arr;
-
-	arr = arr_forsort(tail_a);
-	if (arr == NULL)
-		return (0);
-	
-
-}
-
-int		*sort(t_lst *tail_lst)
+/* int		*sort(t_lst *tail_lst)
 {
 
-}
+} */
 
-int		*arr_forsort(t_lst *tail_lst)
+/* int		*arr_forsort(t_lst *tail_lst)
 {
 	t_st	*cur;
 	int		*arr;
@@ -134,12 +122,12 @@ int		*arr_forsort(t_lst *tail_lst)
 	cur = tail_lst->tail->next;
 	while (i < size)
 	{
-		arr[i++] == cur->num;
+		arr[i++] = cur->num;
 		cur = cur->next;
 	}
-	arr[size] == '\0';
+	arr[size] = '\0';
 	return (arr);
-}
+} */
 
 void	count_input(t_lst *tail_a, t_lst *tail_b)
 {

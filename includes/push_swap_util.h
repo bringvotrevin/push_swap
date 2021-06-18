@@ -20,7 +20,8 @@
 t_st	*check_min(t_lst *tail_a, int size);
 t_st	*check_max(t_lst *tail_a, int size);
 int		check_ascending(t_lst *tail_a, t_lst *tail_b);
-void		three_input(t_lst *tail_a, t_lst *tail_b);
+void	three_input(t_lst *tail_a, t_lst *tail_b);
+void	five_input(t_lst *tail_a, t_lst *tail_b);
 void	count_input(t_lst *tail_a, t_lst *tail_b);
 int		push_swap(t_lst *tail_a);
 
