@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:11:50 by dim               #+#    #+#             */
-/*   Updated: 2021/06/03 03:12:04 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/18 15:46:21 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,23 @@ void	ft_rotate(t_lst *tail_lst)
 
 void	ra(t_lst *tail_a)
 {
-	ft_rotate(tail_a);
+	if (tail_a->size > 1)
+		ft_rotate(tail_a);
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_lst *tail_b)
 {
-	ft_rotate(tail_b);
+	if (tail_b->size > 1)
+		ft_rotate(tail_b);
 	write(1, "rb\n", 3);
 }
 
 void	rr(t_lst *tail_a, t_lst *tail_b)
 {
-	ft_rotate(tail_a);
-	ft_rotate(tail_b);
+	if (tail_a->size > 1)
+		ft_rotate(tail_a);
+	if (tail_b->size > 1)
+		ft_rotate(tail_b);
 	write(1, "rr\n", 3);
 }

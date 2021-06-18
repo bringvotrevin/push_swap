@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/15 21:37:59 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/18 16:12:57 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ void	printtail(t_lst *tail_a)
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
 	int		i;
+	int		j;
 	int		len;
 
 	i = 0;
+	j = 0;
 	len = 0;
 	while (arr[i])
 	{
-		len = ft_strlen(arr[i]);
+		while (arr[i][j] == '0')
+			j++;
+		len = ft_strlen(arr[i] + j);
 		if (len > 11)
 			rt_error(arr, tail_lst);
 		i++;

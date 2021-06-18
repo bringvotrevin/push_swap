@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/15 21:39:36 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/18 18:59:25 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,50 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	} // 3 2 1 Case fail */
 }
 
-/* void	five_input(t_lst *tail_a, t_lst *tail_b)
+int		five_input(t_lst *tail_a, t_lst *tail_b)
+{
+	int		*arr;
+
+	arr = arr_forsort(tail_a);
+	if (arr == NULL)
+		return (0);
+	
+
+}
+
+int		*sort(t_lst *tail_lst)
 {
 
+}
 
-} */
+int		*arr_forsort(t_lst *tail_lst)
+{
+	t_st	*cur;
+	int		*arr;
+	int		i;
+	int		size;
+
+	i = 0;
+	size = tail_lst->size;
+	arr = (int *)malloc(sizeof(int) * (size + 1));
+	if (arr == NULL)
+		return (NULL);
+	cur = tail_lst->tail->next;
+	while (i < size)
+	{
+		arr[i++] == cur->num;
+		cur = cur->next;
+	}
+	arr[size] == '\0';
+	return (arr);
+}
 
 void	count_input(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_a->size <= 3)
 		three_input(tail_a, tail_b);
-	/* else if (tail_a->size > 3 && tail_a->size <= 5)
-		five_input(tail_a, tail_b); */
+	else if (tail_a->size > 3 && tail_a->size <= 5)
+		five_input(tail_a, tail_b);
 /* 	else if (tail_a->size )
 		hundred_input(tial_a, tail_b);
 	else if (tail_a->size >= 500)

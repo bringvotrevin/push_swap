@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/08 13:53:35 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/18 15:49:26 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ void	ft_push(t_lst *stack_loss, t_lst *stack_gain)
 
 void	pa(t_lst *tail_a, t_lst *tail_b)
 {
-	ft_push(tail_b, tail_a);
+	if (tail_b > 0)
+		ft_push(tail_b, tail_a);
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_lst *tail_a, t_lst *tail_b)
 {
-	ft_push(tail_a, tail_b);
+	if (tail_a > 0)
+		ft_push(tail_a, tail_b);
 	write(1, "pb\n", 3);
 }
