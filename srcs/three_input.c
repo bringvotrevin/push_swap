@@ -103,18 +103,18 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	} // 3 2 1 Case fail */
 }
 
-void	five_input(t_lst *tail_a, t_lst *tail_b)
+/* void	five_input(t_lst *tail_a, t_lst *tail_b)
 {
 
 
-}
+} */
 
 void	count_input(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_a->size <= 3)
 		three_input(tail_a, tail_b);
-	else if (tail_a->size > 3 && tail_a->size <= 5)
-		five_input(tail_a, tail_b);
+	/* else if (tail_a->size > 3 && tail_a->size <= 5)
+		five_input(tail_a, tail_b); */
 /* 	else if (tail_a->size )
 		hundred_input(tial_a, tail_b);
 	else if (tail_a->size >= 500)
