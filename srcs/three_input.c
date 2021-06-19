@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/19 22:28:34 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/20 02:13:45 by ids              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void		sort(int left, int right, int *arr)
 	pivot = arr[(left + right) / 2];
 	if (left < right)
 	{
-		printf("i = %d, j = %d, pivot : %d\n", i, j, pivot);
 		while (i <= j)
 		{
 			while (arr[i] < pivot)
@@ -141,17 +140,17 @@ void		sort(int left, int right, int *arr)
 	}
 }
 
-void	printint(int *arr)
+/* void	printint(int *arr, int size)
 {
 	int	i;
 	
-	i = 0;
-	while (arr[i] != 0)
+	i = 0; 
+	while (i < size)
 	{
 		printf("arr[%d] : %d\n", i, arr[i]);
 		i++;
 	}
-}
+} */
 
 int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 {
@@ -163,9 +162,9 @@ int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 	if (arr == NULL || arr_s == NULL)
 		return (0);
 	sort(0, tail_a->size - 1, arr_s);
-	printint(arr_s);
+	// printint(arr_s, tail_a->size);
 	if (tail_b == NULL)
-		return (0);
+		return (0); //remove it!
 	return (1);
 }
 
@@ -178,7 +177,7 @@ int		*arr_forsort(t_lst *tail_lst)
 
 	i = 0;
 	size = tail_lst->size;
-	arr = (int *)malloc(sizeof(int) * (size + 1));
+	arr = (int *)malloc(sizeof(int) * size);
 	if (arr == NULL)
 		return (NULL);
 	cur = tail_lst->tail->next;
@@ -187,7 +186,6 @@ int		*arr_forsort(t_lst *tail_lst)
 		arr[i++] = cur->num;
 		cur = cur->next;
 	}
-	arr[size] = '\0';
 	return (arr);
 }
 

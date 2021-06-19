@@ -3,15 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   five_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:26:35 by dim               #+#    #+#             */
-/*   Updated: 2021/06/19 03:27:28 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/20 03:15:18 by ids              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_util.h"
 
+void	printtail2(t_lst *tail_a)
+{
+	t_st	*cur;
+	int		size;
+
+	size = tail_a->size;
+	cur = tail_a->tail->next;
+	while (size--)
+	{
+		printf("lst->num : %lld\n", cur->num);
+		cur = cur->next;
+	}
+}
 
 void		five_input(t_lst *tail_a, t_lst *tail_b)
 {
@@ -35,16 +48,20 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 	printf("min : %lld, max : %lld\n", min->num, max->num);
 	while(size--)
 	{
-		if (tail_a->tail->next == min || \
-		tail_a->tail->next == max)
+		if (cur == min || \
+		cur == max)
 		{
+			cur = cur->next;
 			pb(tail_a, tail_b);
 			flag++;
 			if (flag == 2)
 				break;
 		}
 		else
+		{
 			ra(tail_a);
+			cur = cur->next;
+		}
 	}
 	three_input(tail_a, tail_b);
 	while (flag--)
@@ -53,4 +70,5 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 		if (tail_a->tail->next == max)
 			ra(tail_a);
 	}
+	printtail2(tail_a);
 }
