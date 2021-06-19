@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/18 15:49:26 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/19 20:28:41 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_lst *stack_loss, t_lst *stack_gain)
+void	st_push(t_lst *stack_loss, t_lst *stack_gain)
 {
 	t_st	*head_loss;
 	t_st	*head_gain;
@@ -33,13 +33,13 @@ void	ft_push(t_lst *stack_loss, t_lst *stack_gain)
 void	pa(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_b > 0)
-		ft_push(tail_b, tail_a);
+		st_push(tail_b, tail_a);
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_a > 0)
-		ft_push(tail_a, tail_b);
+		st_push(tail_a, tail_b);
 	write(1, "pb\n", 3);
 }

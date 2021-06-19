@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/18 18:59:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/19 22:28:34 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 		ra(tail_a);
 	if (check_ascending(tail_a, tail_b))
 		ra(tail_a); 
-	return (0); // working!!!!!! */ 
+	return (0); // working!!!!!! */
 
 /* 	if ((min->next == max || max->next->next == min))
 		sa(tail_a);
@@ -102,12 +102,74 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	} // 3 2 1 Case fail */
 }
 
-/* int		*sort(t_lst *tail_lst)
+void		int_swap(int *a, int *b)
 {
+	int		temp;
 
-} */
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
 
-/* int		*arr_forsort(t_lst *tail_lst)
+void		sort(int left, int right, int *arr)
+{
+	int		pivot;
+	int		i;
+	int		j;
+
+	i = left;
+	j = right;
+	pivot = arr[(left + right) / 2];
+	if (left < right)
+	{
+		printf("i = %d, j = %d, pivot : %d\n", i, j, pivot);
+		while (i <= j)
+		{
+			while (arr[i] < pivot)
+				i++;
+			while (arr[j] > pivot)
+				j--;
+			if (i <= j)
+			{
+				int_swap(&(arr[i]), &(arr[j]));
+				i++;
+				j--;
+			}
+		}
+		sort(left, j, arr);
+		sort(i, right, arr);
+	}
+}
+
+void	printint(int *arr)
+{
+	int	i;
+	
+	i = 0;
+	while (arr[i] != 0)
+	{
+		printf("arr[%d] : %d\n", i, arr[i]);
+		i++;
+	}
+}
+
+int		more_than_five(t_lst *tail_a, t_lst *tail_b)
+{
+	int		*arr;
+	int		*arr_s;
+
+	arr = arr_forsort(tail_a);
+	arr_s = arr_forsort(tail_a);
+	if (arr == NULL || arr_s == NULL)
+		return (0);
+	sort(0, tail_a->size - 1, arr_s);
+	printint(arr_s);
+	if (tail_b == NULL)
+		return (0);
+	return (1);
+}
+
+int		*arr_forsort(t_lst *tail_lst)
 {
 	t_st	*cur;
 	int		*arr;
@@ -127,14 +189,19 @@ void		three_input(t_lst *tail_a, t_lst *tail_b)
 	}
 	arr[size] = '\0';
 	return (arr);
-} */
+}
 
 void	count_input(t_lst *tail_a, t_lst *tail_b)
 {
+	int		i;
+
+	i = 0;
 	if (tail_a->size <= 3)
 		three_input(tail_a, tail_b);
 	else if (tail_a->size > 3 && tail_a->size <= 5)
 		five_input(tail_a, tail_b);
+	else if (tail_a->size > 5)
+		i = more_than_five(tail_a, tail_b);
 /* 	else if (tail_a->size )
 		hundred_input(tial_a, tail_b);
 	else if (tail_a->size >= 500)

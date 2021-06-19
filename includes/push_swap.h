@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/06/12 21:26:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/19 20:29:17 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 # include "lst.h"
 # include "libft.h"
 
-void	ft_push(t_lst *stack_loss, t_lst *stack_gain);
+void	st_push(t_lst *stack_loss, t_lst *stack_gain);
 void	pb(t_lst *tail_a, t_lst *tail_b);
 void	pa(t_lst *tail_a, t_lst *tail_b);
-void	ft_swap(t_st *stack);
+void	st_swap(t_st *stack);
 void	sa(t_lst *tail_a);
 void	sb(t_lst *tail_b);
 void	ss(t_lst *tail_a, t_lst *tail_b);
-void	ft_rotate(t_lst *tail_lst);
+void	st_rotate(t_lst *tail_lst);
 void	ra(t_lst *tail_a);
 void	rb(t_lst *tail_b);
 void	rr(t_lst *tail_a, t_lst *tail_b);
-void	ft_rev_rotate(t_lst *tail_lst);
+void	st_rev_rotate(t_lst *tail_lst);
 void	rra(t_lst *tail_a);
 void	rrb(t_lst *tail_b);
 void	rrr(t_lst *tail_a, t_lst *tail_b);

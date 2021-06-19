@@ -6,13 +6,13 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:10:41 by dim               #+#    #+#             */
-/*   Updated: 2021/06/18 15:46:13 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/19 20:28:32 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_st *stack)
+void	st_swap(t_st *stack)
 {
 	int		temp;
 
@@ -24,22 +24,22 @@ void	ft_swap(t_st *stack)
 void	sa(t_lst *tail_a)
 {
 	if (tail_a->size > 1)
-		ft_swap(tail_a->tail);
+		st_swap(tail_a->tail);
 	write(1, "sa\n", 3);
 }
 
 void	sb(t_lst *tail_b)
 {
 	if (tail_b->size > 1)
-		ft_swap(tail_b->tail);
+		st_swap(tail_b->tail);
 	write(1, "sb\n", 3);
 }
 
 void	ss(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_a->size > 1)
-		ft_swap(tail_a->tail);
+		st_swap(tail_a->tail);
 	if (tail_b->size > 1)
-		ft_swap(tail_b->tail);
+		st_swap(tail_b->tail);
 	write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/15 21:32:17 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/19 21:36:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,9 @@ void	three_input(t_lst *tail_a, t_lst *tail_b);
 void	five_input(t_lst *tail_a, t_lst *tail_b);
 void	count_input(t_lst *tail_a, t_lst *tail_b);
 int		push_swap(t_lst *tail_a);
+int		*arr_forsort(t_lst *tail_lst);
+int		more_than_five(t_lst *tail_a, t_lst *tail_b);
+void	sort(int left, int right, int *arr);
+void	int_swap(int *a, int *b);
 
 #endif
