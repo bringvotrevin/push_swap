@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:12:33 by dim               #+#    #+#             */
-/*   Updated: 2021/06/19 20:29:12 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/22 04:14:43 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "lst.h"
 
 void	st_rev_rotate(t_lst *tail_lst)
 {

@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/20 03:15:25 by ids              ###   ########.fr       */
+/*   Updated: 2021/06/22 04:18:22 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "util.h"
-#include "lst.h"
-#include "push_swap_util.h"
+#include "error_util.h"
 
 void	printtail(t_lst *tail_a)
 {

@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.h                                             :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/22 03:20:27 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 03:44:29 by dim              ###   ########.fr       */
+/*   Created: 2021/06/22 03:49:28 by dim               #+#    #+#             */
+/*   Updated: 2021/06/22 04:36:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "push_swap.h"
 
-# include "lst.h"
+void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr)
+{
+	int		pivot[3];
 
-t_st	*check_min(t_lst *tail_a, int size);
-t_st	*check_max(t_lst *tail_a, int size);
-int		check_ascending(t_lst *tail_a, t_lst *tail_b);
-
-#endif
+	if (tail_a == NULL)
+		return ;
+	pivot[0] = arr[0];
+	if (tail_b == NULL)
+		return ;
+	
+}

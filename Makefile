@@ -18,7 +18,10 @@ FILES = parse.c \
 		util_lst.c \
 		free.c \
 		three_input.c \
-		five_input.c
+		five_input.c \
+		check_util.c \
+		util.c \
+		stack.c
 
 SRCS =	$(addprefix $(SRCDIR), $(FILES))
 

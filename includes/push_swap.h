@@ -3,36 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 17:18:57 by dim               #+#    #+#             */
-/*   Updated: 2021/06/19 20:29:17 by dim              ###   ########.fr       */
+/*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
+/*   Updated: 2021/06/22 04:33:15 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "util.h"
-# include "lst.h"
 # include "libft.h"
+# include "lst.h"
+# include "util.h"
+# include "error_util.h"
+# include "ft_push_swap.h"
 
-void	st_push(t_lst *stack_loss, t_lst *stack_gain);
-void	pb(t_lst *tail_a, t_lst *tail_b);
-void	pa(t_lst *tail_a, t_lst *tail_b);
-void	st_swap(t_st *stack);
-void	sa(t_lst *tail_a);
-void	sb(t_lst *tail_b);
-void	ss(t_lst *tail_a, t_lst *tail_b);
-void	st_rotate(t_lst *tail_lst);
-void	ra(t_lst *tail_a);
-void	rb(t_lst *tail_b);
-void	rr(t_lst *tail_a, t_lst *tail_b);
-void	st_rev_rotate(t_lst *tail_lst);
-void	rra(t_lst *tail_a);
-void	rrb(t_lst *tail_b);
-void	rrr(t_lst *tail_a, t_lst *tail_b);
+void	three_input(t_lst *tail_a, t_lst *tail_b);
+void	five_input(t_lst *tail_a, t_lst *tail_b);
+void	count_input(t_lst *tail_a, t_lst *tail_b);
+int		push_swap(t_lst *tail_a);
+int		*arr_forsort(t_lst *tail_lst);
+int		more_than_five(t_lst *tail_a, t_lst *tail_b);
+void	quick_sort(int left, int right, int *arr);
+void	int_swap(int *a, int *b);
+void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr);
 
 #endif

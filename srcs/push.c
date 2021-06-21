@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/20 03:18:25 by ids              ###   ########.fr       */
+/*   Updated: 2021/06/22 04:14:55 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "lst.h"
 
 void	push_st_gain(t_lst *stack_gain, t_st *head_loss)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   five_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ids <ids@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:26:35 by dim               #+#    #+#             */
-/*   Updated: 2021/06/20 03:15:18 by ids              ###   ########.fr       */
+/*   Updated: 2021/06/22 04:27:11 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_util.h"
+#include "push_swap.h"
 
 void	printtail2(t_lst *tail_a)
 {
@@ -28,12 +28,6 @@ void	printtail2(t_lst *tail_a)
 
 void		five_input(t_lst *tail_a, t_lst *tail_b)
 {
-	/*  int		*arr;
-
-	arr = arr_forsort(tail_a);
-	if (arr == NULL)
-		return (0);
-	 */
 	t_st	*min;
 	t_st	*max;
 	t_st	*cur;
