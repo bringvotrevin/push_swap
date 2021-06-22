@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 04:33:15 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/22 18:58:44 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 # include "util.h"
 # include "error_util.h"
 # include "ft_push_swap.h"
+
+typedef struct	s_save
+{
+	int		n_pa;
+	int		n_pb;
+	int		n_ra;
+	int		n_rb;
+	int		n_rra;
+	int		n_rrb;
+	int		n_rrr;
+}	t_save;
 
 void	three_input(t_lst *tail_a, t_lst *tail_b);
 void	five_input(t_lst *tail_a, t_lst *tail_b);

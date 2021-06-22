@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:39:19 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 04:29:10 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/22 14:35:23 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		int_swap(int *a, int *b)
 	*b = temp;
 }
 
-int		*arr_forsort(t_lst *tail_lst)
+int			*arr_forsort(t_lst *tail_lst)
 {
 	t_st	*cur;
 	int		*arr;

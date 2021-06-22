@@ -21,7 +21,8 @@ FILES = parse.c \
 		five_input.c \
 		check_util.c \
 		util.c \
-		stack.c
+		stack.c \
+		save_num.c
 
 SRCS =	$(addprefix $(SRCDIR), $(FILES))
 
