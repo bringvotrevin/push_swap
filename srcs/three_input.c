@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 02:40:56 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/23 18:47:47 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,10 @@ void		three_input(t_lst *tail_lst)
 
 int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 {
-	int		*arr;
 	int		*arr_s;
 
-	arr = arr_forsort(tail_a);
 	arr_s = arr_forsort(tail_a);
-	if (arr == NULL || arr_s == NULL)
+	if (arr_s == NULL)
 		return (0);
 	quick_sort(0, tail_a->size - 1, arr_s);
 	sort_stack(tail_a, tail_b, arr_s);

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:39:19 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 04:22:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/23 18:26:31 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_pivot(int *arr, int *pivot, int size)
+void	set_pivot(int *arr, t_pivot *pivot, int size)
 {
-	pivot[0] = arr[0];
-	pivot[1] = arr[size / 3];
-	pivot[2] = arr[(size / 3) * 2];
+	pivot->p1 = arr;
+	pivot->p2 = arr + size / 3;
+	pivot->p3 = arr + (size / 3) * 2);
 }
 
-void	set_pivot_2(int *arr, int *pivot, int size, int from)
+void	set_pivot_2(int *arr, t_save *save, int size, int from)
 {
 	int		i;
 
@@ -29,9 +29,9 @@ void	set_pivot_2(int *arr, int *pivot, int size, int from)
 		if (arr[i] == from)
 			break;
 	}
-	pivot[0] = arr[i];
-	pivot[1] = arr[i + (size / 3)];
-	pivot[2] = arr[i + ((size / 3) * 2)];
+	save->p1 = arr + i;
+	save->p2 = arr + i + (size / 3);
+	save->p3 = arri + ((size / 3) * 2);
 }
 
 void	init_lstsave(t_save *save)

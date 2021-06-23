@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 04:22:45 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/23 17:45:20 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,14 @@ typedef struct	s_save
 	int		n_rra;
 	int		n_rrb;
 	int		n_rrr;
-	int		pivot[3];
 }	t_save;
+
+typedef struct	s_pivot
+{
+	int		*p1;
+	int		*p2;
+	int		*p3;
+}	t_pivot;
 
 void	three_input(t_lst *tail_lst);
 void	five_input(t_lst *tail_a, t_lst *tail_b);
