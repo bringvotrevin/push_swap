@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:24:18 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 03:44:59 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/23 02:38:33 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,13 @@ t_st	*check_max(t_lst *tail_a, int size)
 	return (maxlst);
 }
 
-int		check_ascending(t_lst *tail_a, t_lst *tail_b)
+int		check_ascending(t_lst *tail_lst)
 {
 	t_st	*cur;
 	int		size;
 
-	if (tail_b)
-	cur = tail_a->tail->next;
-	size = tail_a->size;
+	cur = tail_lst->tail->next;
+	size = tail_lst->size;
 	while (size-- > 1)
 	{
 		if (cur->num > cur->next->num)

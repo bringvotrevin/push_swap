@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:26:35 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 04:27:11 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/23 02:43:14 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 	cur = tail_a->tail->next;
 	min = check_min(tail_a, 5);
 	max = check_max(tail_a, 5);
-	printf("min : %lld, max : %lld\n", min->num, max->num);
+	// printf("min : %lld, max : %lld\n", min->num, max->num);
 	while(size--)
 	{
 		if (cur == min || \
@@ -57,7 +57,7 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 			cur = cur->next;
 		}
 	}
-	three_input(tail_a, tail_b);
+	three_input(tail_a);
 	while (flag--)
 	{
 		pa(tail_a, tail_b);
