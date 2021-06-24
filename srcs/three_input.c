@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 18:47:47 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/24 18:09:24 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void		three_input(t_lst *tail_lst)
 	min = check_min(tail_lst, 3);
 	max = check_max(tail_lst, 3);
 	// printf("min : %lld, max : %lld\n", min->num, max->num);
-	if (min->next == max && check_ascending(tail_lst))
+	if (min->next == max && check_ascending(tail_lst, 3))
 		sa(tail_lst);
-	if (min == tail_lst->tail && check_ascending(tail_lst))
+	if (min == tail_lst->tail && check_ascending(tail_lst, 3))
 		rra(tail_lst);
-	if (check_ascending(tail_lst))
+	if (check_ascending(tail_lst, 3))
 		ra(tail_lst); // working
 /* 	if (min->next == max && check_ascending(tail_a, tail_b))
 		sa(tail_a);

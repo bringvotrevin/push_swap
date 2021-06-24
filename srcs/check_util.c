@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:24:18 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 02:38:33 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/24 18:13:39 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,12 @@ t_st	*check_max(t_lst *tail_a, int size)
 	return (maxlst);
 }
 
-int		check_ascending(t_lst *tail_lst)
+int		check_ascending(t_lst *tail_lst, int size)
 {
 	t_st	*cur;
-	int		size;
 
 	cur = tail_lst->tail->next;
-	size = tail_lst->size;
-	while (size-- > 1)
+	while (--size)
 	{
 		if (cur->num > cur->next->num)
 			return (1);
@@ -61,4 +59,3 @@ int		check_ascending(t_lst *tail_lst)
 	}
 	return (0);
 }
-
