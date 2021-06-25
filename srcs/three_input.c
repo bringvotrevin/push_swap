@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 16:22:06 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 21:26:08 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,8 @@ int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 	int		*arr;
 
 	arr = arr_forsort(tail_a);
-	if (arr == NULL)
-		return (0);
 	quick_sort(0, tail_a->size - 1, arr);
-	// printint(arr, tail_a->size);
+	printint(arr, tail_a->size);
 	sort_stack(tail_a, tail_b, arr);
 	free(arr);
 	return (1);

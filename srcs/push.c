@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 04:14:55 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 18:20:25 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
+#include <stdio.h>
 
 void	push_st_gain(t_lst *stack_gain, t_st *head_loss)
 {
@@ -30,6 +31,19 @@ void	push_st_gain(t_lst *stack_gain, t_st *head_loss)
 		head_gain->prev = head_loss;
 	}
 	head_loss->prev = stack_gain->tail;
+}
+void	printftail(t_lst *tail_a)
+{
+	t_st	*cur;
+	int		size;
+
+	size = tail_a->size;
+	cur = tail_a->tail->next;
+	while (size--)
+	{
+		printf("lst->num : %lld\n", cur->num);
+		cur = cur->next;
+	}
 }
 
 void	st_push(t_lst *stack_loss, t_lst *stack_gain)
@@ -53,6 +67,7 @@ void	pa(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_b > 0)
 		st_push(tail_b, tail_a);
+	printftail(tail_a);
 	write(1, "pa\n", 3);
 }
 

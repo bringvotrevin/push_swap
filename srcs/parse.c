@@ -6,26 +6,26 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 16:05:21 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 21:11:50 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "error_util.h"
 
-/* void	printtail(t_lst *tail_a)
-{
-	t_st	*cur;
-	int		size;
+// void	printtail(t_lst *tail_a)
+// {
+// 	t_st	*cur;
+// 	int		size;
 
-	size = tail_a->size;
-	cur = tail_a->tail->next;
-	while (size--)
-	{
-		printf("lst->num : %lld\n", cur->num);
-		cur = cur->next;
-	}
-} */
+// 	size = tail_a->size;
+// 	cur = tail_a->tail->next;
+// 	while (size--)
+// 	{
+// 		printf("lst->num : %lld\n", cur->num);
+// 		cur = cur->next;
+// 	}
+// }
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {

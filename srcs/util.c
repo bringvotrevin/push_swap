@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:39:19 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 16:18:35 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 17:40:40 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			*arr_forsort(t_lst *tail_lst)
 	size = tail_lst->size;
 	arr = (int *)malloc(sizeof(int) * size);
 	if (arr == NULL)
-		return (NULL);
+		exit(1);
 	cur = tail_lst->tail->next;
 	while (i < size)
 	{
