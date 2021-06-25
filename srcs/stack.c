@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:49:28 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 21:48:00 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/26 02:29:34 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr)
 	else
 	{
 		a_to_b(tail_a, tail_b, pivot.p3, save.n_ra);
-		printf("^^ %d\n", 2);
 		b_to_a(tail_a, tail_b, pivot.p2, save.n_pb - save.n_rb);
-		printf("^^ %d\n", 3);
 		b_to_a(tail_a, tail_b, pivot.p1, save.n_rb);
 	}
 }
@@ -80,7 +78,7 @@ void	a_to_b(t_lst *tail_a, t_lst *tail_b, int *arr, int size)
 	t_pivot		pivot;
 
 	if (size <= 3)
-		three_a_to_b(tail_a, tail_b);
+		three_a_to_b(tail_a, tail_b, size);
 	else
 	{
 		set_pivot(arr, &pivot, size);
@@ -254,26 +252,26 @@ void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 }
  */
 
-void	three_a_to_b(t_lst *tail_a, t_lst *tail_b)
+void	three_a_to_b(t_lst *tail_a, t_lst *tail_b, int size)
 {
 	t_st	*min;
 	t_st	*max;
 	t_st	*cur;
 
-	min = check_min(tail_a, 3);
-	max = check_max(tail_a, 3);
-	cur = tail_a->tail->next;
-	if (check_ascending(tail_a, 3) == 1)
+	if (check_ascending(tail_a, size) == 1)
 		return ;
+	min = check_min(tail_a, size);
+	max = check_max(tail_a, size);
+	cur = tail_a->tail->next;
 	if (cur == max || cur->next->next == max)
 		sa(tail_a);
-	if (check_ascending(tail_a, 3))
+	if (check_ascending(tail_a, size))
 	{
 		pb(tail_a, tail_b);
 		sa(tail_a);
 		pa(tail_a, tail_b);
 	}
-	if (check_ascending(tail_a, 3))
+	if (check_ascending(tail_a, size))
 		sa(tail_a);
 }
 

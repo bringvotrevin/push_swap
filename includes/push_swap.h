@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 18:28:55 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/26 02:27:48 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	b_to_a(t_lst *tail_a, t_lst *tail_b, int *arr, int size);
 void	ft_b_to_a(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
 void	rra_to_b(t_lst *tail_a, t_lst *tail_b, int *arr, t_save *prev_save);
 void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
-void	three_a_to_b(t_lst *tail_a, t_lst *tail_b);
+void	three_a_to_b(t_lst *tail_a, t_lst *tail_b, int size);
 void	two_b_to_a(t_lst *tail_a, t_lst *tail_b, int size);
 void	two_rra_to_b(t_lst *tail_a, int size);
 
