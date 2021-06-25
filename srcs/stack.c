@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:49:28 by dim               #+#    #+#             */
-/*   Updated: 2021/06/24 19:21:46 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 15:25:53 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr)
 			n_ra(tail_a, &save);
 		else if (cur->num < *(pivot.p2))
 		{
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 			n_rb(tail_b, &save);
 		}
 		else 
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 		cur = cur->next;
 	}
 	if (save.n_ra <= 3)
 	{
 		three_input(tail_a);
-		b_to_a(tail_a, tail_b, save.n_pb - save.n_rb);
-		b_to_a(tail_a, tail_b, save.n_rb);
+		b_to_a(tail_a, tail_b, pivot.p2, save.n_pb - save.n_rb);
+		b_to_a(tail_a, tail_b, pivot.p1, save.n_rb);
 	}
 	else
 		a_to_b(tail_a, tail_b, pivot.p3, save.n_ra);
@@ -64,7 +64,7 @@ void	ft_a_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 	t_st		*cur;
 	t_save		save;
 
-	init_lstinfo(&save);
+	init_lstsave(&save);
 	cur = tail_a->tail->next;
 	while(size--)
 	{
@@ -72,16 +72,17 @@ void	ft_a_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 			n_ra(tail_a, &save);
 		else if (cur->num < *(pivot->p2))
 		{
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 			n_rb(tail_b, &save);
 		}
 		else 
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 		cur = cur->next;
 	}
 	rr_stack(tail_a, tail_b, &save);
 	a_to_b(tail_a, tail_b, pivot->p3, save.n_ra);
-	b_to_a();
+	b_to_a(tail_a, tail_b, pivot->p2, save.n_pb - save.n_rb);
+	b_to_a(tail_a, tail_b, pivot->p1, save.n_rb);
 }
 
 void	rr_stack(t_lst *tail_a, t_lst *tail_b, t_save *prev_save)
@@ -110,8 +111,8 @@ void	b_to_a(t_lst *tail_a, t_lst *tail_b, int *arr, int size)
 {
 	t_pivot		pivot;
 
-	if (size <= 3)
-		three_b_to_a();
+	if (size <= 2)
+		two_b_to_a(tail_a, tail_b);
 	else
 	{
 		set_pivot(arr, &pivot, size);
@@ -124,17 +125,17 @@ void	ft_b_to_a(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 	t_st	*cur;
 	t_save	save;
 
-	init_lstinfo(&save);
+	init_lstsave(&save);
 	cur = tail_b->tail->next;
 	while(size--)
 	{
 		if (cur->num >= *(pivot->p3))
-			n_pa(tail_a, &save);
+			n_pa(tail_a, tail_b, &save);
 		else if (cur->num < *(pivot->p2))
 			n_rb(tail_b, &save);
 		else 
 		{
-			n_pa(tail_a, &save);
+			n_pa(tail_a, tail_b, &save);
 			n_ra(tail_a, &save);
 		}
 		cur = cur->next;
@@ -146,14 +147,14 @@ void	ft_b_to_a(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 
 void	rra_to_b(t_lst *tail_a, t_lst *tail_b, int *arr, t_save *prev_save)
 {
-	int			n_rb;
+	int			i;
 	t_pivot		pivot;
 
-	n_rb = prev_save->n_rb;
-	while (n_rb--)
+	i = prev_save->n_rb;
+	while (i--)
 		rrb(tail_b);
-	if (prev_save->n_ra <= 3)
-		three_rra_to_b();
+	if (prev_save->n_ra <= 2)
+		two_rra_to_b(tail_a);
 	else
 	{
 		set_pivot(arr, &pivot, prev_save->n_ra);
@@ -167,7 +168,7 @@ void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 	t_st	*cur;
 	t_save	save;
 
-	init_lstinfo(&save);
+	init_lstsave(&save);
 	cur = tail_a->tail;
 	while (size--)
 	{
@@ -176,12 +177,12 @@ void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 		else if (cur->num < *(pivot->p2))
 		{
 			n_rra(tail_a, &save);
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 		}
 		else 
 		{
 			n_rra(tail_a, &save);
-			n_pb(tail_b, &save);
+			n_pb(tail_a, tail_b, &save);
 			n_rb(tail_b, &save);
 		}
 		cur = cur->prev;
@@ -202,27 +203,35 @@ void	three_a_to_b(t_lst *tail_a, t_lst *tail_b)
 	min = check_min(tail_a, 3);
 	max = check_max(tail_a, 3);
 	cur = tail_a->tail->next;
-	if (check_ascending == 1)
+	if (check_ascending(tail_a, 3) == 1)
 		return ;
 	if (cur == max || cur->next->next == max)
 		sa(tail_a);
-	cur = tail_a->tail->next;
 	if (check_ascending(tail_a, 3))
 	{
 		pb(tail_a, tail_b);
 		sa(tail_a);
 		pa(tail_a, tail_b);
-		if (check_ascending(tail_a, 3))
-			sa(tail_a);
 	}
+	if (check_ascending(tail_a, 3))
+		sa(tail_a);
 }
 
-void	three_b_to_a()
+void	two_b_to_a(t_lst *tail_a, t_lst *tail_b)
 {
+	t_st	*cur;
 
+	pa(tail_a, tail_b);
+	pa(tail_a, tail_b);
+	cur = tail_a->tail->next;
+	if (check_ascending(tail_a, 2))
+		sa(tail_a);
 }
 
-void	three_rra_to_b()
+void	two_rra_to_b(t_lst *tail_a)
 {
-
+	rra(tail_a);
+	rra(tail_a);
+	if (check_ascending(tail_a, 2))
+		sa(tail_a);
 }

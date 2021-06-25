@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 17:45:20 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 15:21:30 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,25 @@
 # include "error_util.h"
 # include "ft_push_swap.h"
 
-typedef struct	s_save
-{
-	int		n_pa;
-	int		n_pb;
-	int		n_ra;
-	int		n_rb;
-	int		n_rra;
-	int		n_rrb;
-	int		n_rrr;
-}	t_save;
-
-typedef struct	s_pivot
-{
-	int		*p1;
-	int		*p2;
-	int		*p3;
-}	t_pivot;
-
 void	three_input(t_lst *tail_lst);
 void	five_input(t_lst *tail_a, t_lst *tail_b);
-void	count_input(t_lst *tail_a, t_lst *tail_b);
-int		push_swap(t_lst *tail_a);
-int		*arr_forsort(t_lst *tail_lst);
 int		more_than_five(t_lst *tail_a, t_lst *tail_b);
+int		push_swap(t_lst *tail_a);
+void	set_pivot(int *arr, t_pivot *pivot, int size);
+int		*arr_forsort(t_lst *tail_lst);
 void	quick_sort(int left, int right, int *arr);
 void	int_swap(int *a, int *b);
+
 void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr);
+void	a_to_b(t_lst *tail_a, t_lst *tail_b, int *arr, int size);
+void	ft_a_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
+void	rr_stack(t_lst *tail_a, t_lst *tail_b, t_save *prev_save);
+void	b_to_a(t_lst *tail_a, t_lst *tail_b, int *arr, int size);
+void	ft_b_to_a(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
+void	rra_to_b(t_lst *tail_a, t_lst *tail_b, int *arr, t_save *prev_save);
+void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
+void	three_a_to_b(t_lst *tail_a, t_lst *tail_b);
+void	two_b_to_a(t_lst *tail_a, t_lst *tail_b);
+void	two_rra_to_b(t_lst *tail_a);
 
 #endif

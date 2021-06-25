@@ -6,21 +6,21 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:54:21 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 19:05:41 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 15:31:46 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	n_pa(t_lst *tail_a, t_save *save)
+void	n_pa(t_lst *tail_a, t_lst *tail_b, t_save *save)
 {
-	pa(tail_a);
+	pa(tail_a, tail_b);
 	save->n_pa++;
 }
 
-void	n_pb(t_lst *tail_b, t_save *save)
+void	n_pb(t_lst *tail_a, t_lst *tail_b, t_save *save)
 {
-	pb(tail_b);
+	pb(tail_a, tail_b);
 	save->n_pb++;
 }
 

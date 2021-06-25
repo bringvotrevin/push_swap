@@ -35,4 +35,12 @@ void	rra(t_lst *tail_a);
 void	rrb(t_lst *tail_b);
 void	rrr(t_lst *tail_a, t_lst *tail_b);
 
+void	n_pa(t_lst *tail_a, t_lst *tail_b, t_save *save);
+void	n_pb(t_lst *tail_a, t_lst *tail_b, t_save *save);
+void	n_ra(t_lst *tail_a, t_save *save);
+void	n_rb(t_lst *tail_b, t_save *save);
+void	n_rra(t_lst *tail_a, t_save *save);
+void	n_rrb(t_lst *tail_b, t_save *save);
+void	n_rrr(t_lst *tail_a, t_lst *tail_b, t_save *save);
+
 #endif

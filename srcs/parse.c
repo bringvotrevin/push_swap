@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/22 04:18:22 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 16:05:21 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "error_util.h"
 
-void	printtail(t_lst *tail_a)
+/* void	printtail(t_lst *tail_a)
 {
 	t_st	*cur;
 	int		size;
@@ -25,7 +25,7 @@ void	printtail(t_lst *tail_a)
 		printf("lst->num : %lld\n", cur->num);
 		cur = cur->next;
 	}
-}
+} */
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -126,7 +126,6 @@ int		main(int argc, char *argv[])
 	i = push_swap(tail_a);
 	if (i == 0)
 		return (0);
-	
 	free_lst(tail_a);
 	return (0);
 }

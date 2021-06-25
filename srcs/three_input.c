@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/24 18:09:24 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 16:22:06 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,9 @@ void		three_input(t_lst *tail_lst)
 	if (check_ascending(tail_a, tail_b))
 		ra(tail_a); two_input error */
 
-/* 	while (check_ascending(tail_a, tail_b))
-	{
-		if ((min->next == max) && check_ascending(tail_a, tail_b))
-			sa(tail_a);
-		if (check_ascending(tail_a, tail_b))
-			ra(tail_a);
-	} // 3 2 1 Case fail */
 }
 
-/* void	printint(int *arr, int size)
+void	printint(int *arr, int size)
 {
 	int	i;
 	
@@ -60,43 +53,92 @@ void		three_input(t_lst *tail_lst)
 		printf("arr[%d] : %d\n", i, arr[i]);
 		i++;
 	}
-} */
+}
+
+void		five_input(t_lst *tail_a, t_lst *tail_b)
+{
+	t_st	*min;
+	t_st	*max;
+	t_st	*cur;
+	int		size;
+	int		flag;
+
+	size = tail_a->size;
+	flag = 0;
+	cur = tail_a->tail->next;
+	min = check_min(tail_a, 5);
+	max = check_max(tail_a, 5);
+	// printf("min : %lld, max : %lld\n", min->num, max->num);
+	while(size--)
+	{
+		if (cur == min || \
+		cur == max)
+		{
+			cur = cur->next;
+			pb(tail_a, tail_b);
+			flag++;
+			if (flag == 2)
+				break;
+		}
+		else
+		{
+			ra(tail_a);
+			cur = cur->next;
+		}
+	}
+	three_input(tail_a);
+	while (flag--)
+	{
+		pa(tail_a, tail_b);
+		if (tail_a->tail->next == max)
+			ra(tail_a);
+	}
+}
 
 int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 {
-	int		*arr_s;
+	int		*arr;
 
-	arr_s = arr_forsort(tail_a);
-	if (arr_s == NULL)
+	arr = arr_forsort(tail_a);
+	if (arr == NULL)
 		return (0);
-	quick_sort(0, tail_a->size - 1, arr_s);
-	sort_stack(tail_a, tail_b, arr_s);
-	// printint(arr_s, tail_a->size);
-	if (tail_b == NULL)
-		return (0); //remove it!
+	quick_sort(0, tail_a->size - 1, arr);
+	// printint(arr, tail_a->size);
+	sort_stack(tail_a, tail_b, arr);
+	free(arr);
 	return (1);
 }
 
-void	count_input(t_lst *tail_a, t_lst *tail_b)
+void	printst(t_lst *tail_lst)
 {
+	int 	i = tail_lst->size;
+	t_st	*cur;
+	cur = tail_lst->tail->next;
+	while (i--)
+	{
+		printf("%lld\n", cur->num);
+		cur = cur->next;
+	}
+}
+
+int		push_swap(t_lst *tail_a)
+{
+	t_lst	*tail_b;
 	int		i;
 
+	tail_b = ft_lstnew_t();
+	if (tail_b == NULL)
+		return (0);
 	i = 0;
 	if (tail_a->size <= 3)
 		three_input(tail_a);
 	else if (tail_a->size > 3 && tail_a->size <= 5)
 		five_input(tail_a, tail_b);
 	else if (tail_a->size > 5)
-		i = more_than_five(tail_a, tail_b);	
-}
-
-int		push_swap(t_lst *tail_a)
-{
-	t_lst	*tail_b;
-
-	tail_b = ft_lstnew_t();
-	if (tail_b == NULL)
+		i = more_than_five(tail_a, tail_b);
+	// printst(tail_a);
+	free_lst(tail_b);
+	if (i == 0)
 		return (0);
-	count_input(tail_a, tail_b);
 	return (1);
 }

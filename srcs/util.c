@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:39:19 by dim               #+#    #+#             */
-/*   Updated: 2021/06/23 18:26:31 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 16:18:35 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,7 @@ void	set_pivot(int *arr, t_pivot *pivot, int size)
 {
 	pivot->p1 = arr;
 	pivot->p2 = arr + size / 3;
-	pivot->p3 = arr + (size / 3) * 2);
-}
-
-void	set_pivot_2(int *arr, t_save *save, int size, int from)
-{
-	int		i;
-
-	i = -1;
-	while (i++)
-	{
-		if (arr[i] == from)
-			break;
-	}
-	save->p1 = arr + i;
-	save->p2 = arr + i + (size / 3);
-	save->p3 = arri + ((size / 3) * 2);
+	pivot->p3 = arr + ((size / 3) * 2);
 }
 
 void	init_lstsave(t_save *save)
@@ -74,26 +59,8 @@ int			*arr_forsort(t_lst *tail_lst)
 	return (arr);
 }
 
-int			*arr_forsort2(t_lst *tail_lst, int size)
-{
-	t_st	*cur;
-	int		*arr;
-	int		i;
-
-	i = 0;
-	arr = (int *)malloc(sizeof(int) * size);
-	if (arr == NULL)
-		return (NULL);
-	cur = tail_lst->tail->next;
-	while (i < size)
-	{
-		arr[i++] = cur->num;
-		cur = cur->next;
-	}
-	return (arr);
-}
-
 void		quick_sort(int left, int right, int *arr)
+
 {
 	int		pivot;
 	int		i;

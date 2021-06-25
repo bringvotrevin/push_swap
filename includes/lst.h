@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:39:33 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 14:30:27 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/25 14:50:59 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,22 @@ typedef struct s_lst
 	t_st		*tail;
 }	t_lst;
 
+typedef struct	s_save
+{
+	int		n_pa;
+	int		n_pb;
+	int		n_ra;
+	int		n_rb;
+	int		n_rra;
+	int		n_rrb;
+	int		n_rrr;
+}	t_save;
+
+typedef struct	s_pivot
+{
+	int		*p1;
+	int		*p2;
+	int		*p3;
+}	t_pivot;
 
 #endif
