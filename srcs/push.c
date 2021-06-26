@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 03:13:29 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 18:20:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/27 01:46:31 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	pa(t_lst *tail_a, t_lst *tail_b)
 {
 	if (tail_b > 0)
 		st_push(tail_b, tail_a);
-	printftail(tail_a);
+	// printftail(tail_a);
 	write(1, "pa\n", 3);
 }
 

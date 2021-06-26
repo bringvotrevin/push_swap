@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:24:18 by dim               #+#    #+#             */
-/*   Updated: 2021/06/24 18:13:39 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/27 04:26:07 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_st	*check_max(t_lst *tail_a, int size)
 
 	cur = tail_a->tail->next;
 	maxlst = cur;
-	size = tail_a->size;
 	while (size-- > 1)
 	{
 		if (maxlst->num < cur->next->num)

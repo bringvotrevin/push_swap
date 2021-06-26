@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 21:26:08 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/27 04:49:42 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int		more_than_five(t_lst *tail_a, t_lst *tail_b)
 
 	arr = arr_forsort(tail_a);
 	quick_sort(0, tail_a->size - 1, arr);
-	printint(arr, tail_a->size);
+	// printint(arr, tail_a->size);
 	sort_stack(tail_a, tail_b, arr);
 	free(arr);
 	return (1);

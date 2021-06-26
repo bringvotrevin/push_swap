@@ -6,10 +6,11 @@
 /*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:49:28 by dim               #+#    #+#             */
-/*   Updated: 2021/06/26 02:29:34 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/27 04:37:46 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "push_swap.h"
 
 void	printtail(t_lst *tail_a)
@@ -35,7 +36,7 @@ void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr)
 
 	init_lstsave(&save);
 	set_pivot(arr, &pivot, tail_a->size);
-	printf("%d, %d, %d\n", *pivot.p1, *pivot.p2, *pivot.p3);
+	// printf("pivot : %d, %d, %d\n", *pivot.p1, *pivot.p2, *pivot.p3);
 	size = tail_a->size;
 	cur = tail_a->tail->next;
 	while(size--)
@@ -57,10 +58,8 @@ void	sort_stack(t_lst *tail_a, t_lst *tail_b, int *arr)
 			n_pb(tail_a, tail_b, &save);
 		}
 	}
-	printf("n.ra: %d\n", save.n_ra);
 	if (save.n_ra <= 3)
 	{
-		printf("!");
 		three_input(tail_a);
 		b_to_a(tail_a, tail_b, pivot.p2, save.n_pb - save.n_rb);
 		b_to_a(tail_a, tail_b, pivot.p1, save.n_rb);
@@ -116,8 +115,6 @@ void	ft_a_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 	// printf("%d %d %d\n", save.n_ra, save.n_rb, save.n_pb);
 	rr_stack(tail_a, tail_b, &save);
 	a_to_b(tail_a, tail_b, pivot->p3, save.n_ra);
-	// printf("%d %d %d\n", save.n_ra, save.n_rb, save.n_pb);
-	// while(1);
 	b_to_a(tail_a, tail_b, pivot->p2, save.n_rb);
 	b_to_a(tail_a, tail_b, pivot->p1, save.n_pb - save.n_rb);
 }
@@ -135,14 +132,14 @@ void	rr_stack(t_lst *tail_a, t_lst *tail_b, t_save *prev_save)
 		while (save.n_rb--)
 			n_rrr(tail_a, tail_b, &save);
 		while (diff--)
-			n_ra(tail_a, &save);
+			n_rra(tail_a, &save);
 	}
 	else
 	{
 		while (save.n_ra--)
 			n_rrr(tail_a, tail_b, &save);
 		while (diff++)
-			n_rb(tail_b, &save);
+			n_rrb(tail_b, &save);
 	}
 }
 
@@ -150,12 +147,9 @@ void	b_to_a(t_lst *tail_a, t_lst *tail_b, int *arr, int size)
 {
 	t_pivot		pivot;
 
-	printf("before two btoa size: %d\n" , size);
+	// printf("before two btoa size: %d\n" , size);
 	if (size <= 2)
-	{
 		two_b_to_a(tail_a, tail_b, size);
-		return ;
-	}
 	else
 	{
 		set_pivot(arr, &pivot, size);
@@ -170,7 +164,8 @@ void	ft_b_to_a(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 
 	init_lstsave(&save);
 	cur = tail_b->tail->next;
-	printtail(tail_b);
+	// printtail(tail_b);
+	// printf("pivot : %d, %d, %d\n", *pivot->p1, *pivot->p2, *pivot->p3);
 	while(size--)
 	{
 		if (cur->num >= *(pivot->p3))
@@ -254,16 +249,15 @@ void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size)
 
 void	three_a_to_b(t_lst *tail_a, t_lst *tail_b, int size)
 {
-	t_st	*min;
 	t_st	*max;
 	t_st	*cur;
 
-	if (check_ascending(tail_a, size) == 1)
+	if (size == 1)
 		return ;
-	min = check_min(tail_a, size);
 	max = check_max(tail_a, size);
 	cur = tail_a->tail->next;
-	if (cur == max || cur->next->next == max)
+	if ((cur == max || cur->next->next == max) \
+	&& check_ascending(tail_a, size))
 		sa(tail_a);
 	if (check_ascending(tail_a, size))
 	{
