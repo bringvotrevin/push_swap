@@ -3,30 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:39:19 by dim               #+#    #+#             */
-/*   Updated: 2021/06/26 02:17:35 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 11:46:35 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_pivot(int *arr, t_pivot *pivot, int size)
+void		set_pivot(int *arr, t_pivot *pivot, int size)
 {
 	pivot->p1 = arr;
 	pivot->p2 = arr + size / 3;
 	pivot->p3 = arr + ((size / 3) * 2);
 }
 
-void	init_lstsave(t_save *save)
+void		init_lstsave(t_save *save)
 {
 	save->n_pa = 0;
 	save->n_pb = 0;
 	save->n_ra = 0;
 	save->n_rb = 0;
-	save->n_rra = 0;
-	save->n_rrb = 0;
 }
 
 void		int_swap(int *a, int *b)

@@ -11,17 +11,19 @@ DEBUGFLAGS = -g -fsanitize=address
 CFLAGS = $(WFLAGS) $(INCFLAGS) $(DEBUGFLAGS)
 LIBFLAGS = -L $(LIB)libft -lft
 FILES = parse.c \
+		push_swap.c \
 		push.c \
 		swap.c \
 		rotate.c \
 		reverse_rotate.c \
-		util_lst.c \
+		sort.c \
+		sort_a_to_b.c \
+		sort_b_to_a.c \
+		save_num.c \
 		free.c \
-		three_input.c \
-		check_util.c \
-		util.c \
-		stack.c \
-		save_num.c
+		util_sort.c \
+		util_check.c \
+		util_lst.c \
 
 SRCS =	$(addprefix $(SRCDIR), $(FILES))
 

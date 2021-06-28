@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:39:33 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 14:50:59 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 12:08:59 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 # define LST_H
 
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h> //remove it!@#$%$^%&^*&(&*^&%^$#$@!@~
 
-typedef struct s_st
+typedef struct	s_st
 {
 	long long		num;
 	struct s_st		*next;
 	struct s_st		*prev;
-}	t_st;
+}				t_st;
 
-typedef struct s_lst
+typedef struct	s_lst
 {
 	int			size;
 	t_st		*tail;
-}	t_lst;
+}				t_lst;
 
 typedef struct	s_save
 {
@@ -36,16 +34,13 @@ typedef struct	s_save
 	int		n_pb;
 	int		n_ra;
 	int		n_rb;
-	int		n_rra;
-	int		n_rrb;
-	int		n_rrr;
-}	t_save;
+}				t_save;
 
 typedef struct	s_pivot
 {
 	int		*p1;
 	int		*p2;
 	int		*p3;
-}	t_pivot;
+}				t_pivot;
 
 #endif

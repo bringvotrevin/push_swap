@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:54:21 by dim               #+#    #+#             */
-/*   Updated: 2021/06/25 15:31:46 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 11:47:28 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,8 @@ void	n_rb(t_lst *tail_b, t_save *save)
 	save->n_rb++;
 }
 
-void	n_rra(t_lst *tail_a, t_save *save)
+int		cur_next(t_st **cur)
 {
-	rra(tail_a);
-	save->n_rra++;
-}
-
-void	n_rrb(t_lst *tail_b, t_save *save)
-{
-	rrb(tail_b);
-	save->n_rrb++;
-}
-
-void	n_rrr(t_lst *tail_a, t_lst *tail_b, t_save *save)
-{
-	rrr(tail_a, tail_b);
-	save->n_rrr++;
+	*cur = (*cur)->next;
+	return (1);
 }

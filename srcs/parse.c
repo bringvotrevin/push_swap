@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dim <dim@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/27 04:27:18 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 12:04:52 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "error_util.h"
-
-void	printtail2(t_lst *tail_a)
-{
-	t_st	*cur;
-	int		size;
-
-	size = tail_a->size;
-	cur = tail_a->tail->next;
-	while (size--)
-	{
-		printf("lst->num : %lld\n", cur->num);
-		cur = cur->next;
-	}
-}
 
 void	check_overlen(char **arr, t_lst *tail_lst)
 {
@@ -116,16 +101,12 @@ void	parse(char **argv, t_lst *tail_a)
 int		main(int argc, char *argv[])
 {
 	t_lst	*tail_a;
-	int		i;
 
 	tail_a = ft_lstnew_t();
 	if (argc < 2 || tail_a == NULL)
 		return (0);
 	parse(argv, tail_a);
-	i = push_swap(tail_a);
-	// printtail2(tail_a);
-	if (i == 0)
-		return (0);
+	push_swap(tail_a);
 	free_lst(tail_a);
-	return (0);
+	return (1);
 }
