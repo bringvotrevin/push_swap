@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 22:47:25 by dim               #+#    #+#             */
-/*   Updated: 2021/06/09 16:39:25 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 20:48:28 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,11 @@ int			find_size(char const *s, char c)
 	return (size);
 }
 
-int		copycase(char **arr, char const *s, \
-int i, int j, int len)
+int			copycase(char *arr, char const *s, int j, int len)
 {
 	if (len == 1 && j < 2)
 		j++;
-	ft_strlcpy(arr[i], s + j - len - 1, len + 1);
+	ft_strlcpy(arr, s + j - len - 1, len + 1);
 	return (j);
 }
 
@@ -88,11 +87,11 @@ char		**ft_split(char const *s, char c)
 		len = 0;
 		while (s[j] && s[j] == c)
 			j++;
-		while (s[j] && s[j++] != c) 
+		while (s[j] && s[j++] != c)
 			len++;
 		if (!(arr[i] = (char *)malloc(sizeof(char) * (len + 1))))
 			return (ft_memerror(arr));
-		j = copycase(arr, s, i, j, len);
+		j = copycase(arr[i], s, j, len);
 		i++;
 	}
 	arr[i] = NULL;

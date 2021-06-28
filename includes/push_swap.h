@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 12:11:34 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 20:05:42 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include "get_next_line.h"
 # include "lst.h"
 # include "util.h"
-# include "error_util.h"
 # include "ft_push_swap.h"
+
+void	parse(char **argv, t_lst *tail_a);
+void	check_repeatnum(t_lst *tail_a);
+char	**make_arr(char *str, t_lst *tail_a);
+void	check_overlen(char **arr, t_lst *tail_lst);
 
 void	push_swap(t_lst *tail_a);
 void	three_input(t_lst *tail_lst);
@@ -37,5 +42,8 @@ void	ft_rra_to_b(t_lst *tail_a, t_lst *tail_b, t_pivot *pivot, int size);
 void	three_a_to_b(t_lst *tail_a, t_lst *tail_b, int size);
 void	two_b_to_a(t_lst *tail_a, t_lst *tail_b, int size);
 void	two_rra_to_b(t_lst *tail_a, int size);
+
+void	push_swap_bonus(t_lst *tail_a, t_lst *tail_b, int i);
+void	ft_checker(t_lst *tail_a, t_lst *tail_b, char **line);
 
 #endif

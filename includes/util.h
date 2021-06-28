@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 03:20:27 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 11:49:04 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 20:13:49 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define UTIL_H
 
 # include "lst.h"
+
+void	memfree(char **arr, t_lst *tail_lst);
+void	free_arr(char **arr);
+void	free_lst(t_lst *tail_lst);
+t_lst	*ft_lstnew_t(void);
+t_st	*ft_lstnew_s(int number);
+void	ft_lstadd_tail(char **arr, t_lst *tail_lst, t_st *new);
+void	rt_error(char **arr, t_lst *tail_lst);
 
 void	set_pivot(int *arr, t_pivot *pivot, int size);
 int		*arr_forsort(t_lst *tail_lst);

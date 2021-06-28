@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:26:06 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 12:04:52 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 20:25:58 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,4 @@ void	parse(char **argv, t_lst *tail_a)
 		i++;
 	}
 	check_repeatnum(tail_a);
-}
-
-int		main(int argc, char *argv[])
-{
-	t_lst	*tail_a;
-
-	tail_a = ft_lstnew_t();
-	if (argc < 2 || tail_a == NULL)
-		return (0);
-	parse(argv, tail_a);
-	push_swap(tail_a);
-	free_lst(tail_a);
-	return (1);
 }

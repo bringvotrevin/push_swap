@@ -28,6 +28,7 @@ SRCS = ft_atoi.c \
 	   ft_split.c \
 	   ft_split_str.c \
 	   ft_strchr.c \
+	   ft_strcmp.c \
 	   ft_strdup.c \
 	   ft_strjoin.c \
 	   ft_strlcat.c \
@@ -40,7 +41,9 @@ SRCS = ft_atoi.c \
 	   ft_strtrim.c \
 	   ft_substr.c \
 	   ft_tolower.c \
-	   ft_toupper.c
+	   ft_toupper.c \
+	   get_next_line.c \
+	   get_next_line_util.c
 
 OBJS = ft_atoi.o \
 	   ft_atoll.o \
@@ -65,6 +68,7 @@ OBJS = ft_atoi.o \
 	   ft_split.o \
 	   ft_split_str.o \
 	   ft_strchr.o \
+	   ft_strcmp.o \
 	   ft_strdup.o \
 	   ft_strjoin.o \
 	   ft_strlcat.o \
@@ -77,7 +81,9 @@ OBJS = ft_atoi.o \
 	   ft_strtrim.o \
 	   ft_substr.o \
 	   ft_tolower.o \
-	   ft_toupper.o
+	   ft_toupper.o \
+	   get_next_line.o \
+	   get_next_line_util.o
 
 SRCS_BN = ft_lstnew.c \
 		 ft_lstadd_front.c \

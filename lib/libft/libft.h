@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 02:33:16 by dim               #+#    #+#             */
-/*   Updated: 2021/06/11 17:07:43 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 16:35:17 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
 char				**ft_split_str(char const *s, char *sep);
 char				*ft_strchr(const char *s, int c);
+int					ft_strcmp(char *s1, char *s2);
 char				*ft_strdup(const char *s);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dest, const char *src, size_t maxlen);

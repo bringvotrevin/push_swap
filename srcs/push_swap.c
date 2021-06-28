@@ -6,10 +6,11 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 12:13:19 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/28 21:03:49 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "push_swap.h"
 
 void		three_input(t_lst *tail_lst)
@@ -42,10 +43,11 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 	max = check_max(tail_a, 5);
 	while (size--)
 	{
-		if ((cur == min || cur == max) && flag++)
+		if ((cur == min || cur == max))
 		{
 			cur = cur->next;
 			pb(tail_a, tail_b);
+			flag++;
 			if (flag == 2)
 				break ;
 		}
@@ -58,6 +60,7 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 void		five_input2(t_lst *tail_a, t_lst *tail_b, t_st *max, int flag)
 {
 	three_input(tail_a);
+	printf("flag : %d\n", flag);
 	while (flag--)
 	{
 		pa(tail_a, tail_b);
