@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:44:04 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 20:05:42 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/29 15:48:10 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	two_b_to_a(t_lst *tail_a, t_lst *tail_b, int size);
 void	two_rra_to_b(t_lst *tail_a, int size);
 
 void	push_swap_bonus(t_lst *tail_a, t_lst *tail_b, int i);
-void	ft_checker(t_lst *tail_a, t_lst *tail_b, char **line);
+void	show_result(t_lst *tail_a, int i);
+void	checker(t_lst *tail_a, t_lst *tail_b, char **line);
 
 #endif

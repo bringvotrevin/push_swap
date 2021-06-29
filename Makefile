@@ -8,7 +8,7 @@ CC = gcc
 RM = rm -rf
 WFLAGS = -Wall -Werror -Wextra
 INCFLAGS = -I$(HEADER)
-DEBUGFLAGS = -g -fsanitize=address
+DEBUGFLAGS = -g
 CFLAGS = $(WFLAGS) $(INCFLAGS) $(DEBUGFLAGS)
 LIBFLAGS = -L $(LIB)libft -lft
 FILES = main.c \

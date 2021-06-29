@@ -6,11 +6,10 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 20:21:55 by dim               #+#    #+#             */
-/*   Updated: 2021/06/28 21:03:49 by dim              ###   ########.fr       */
+/*   Updated: 2021/06/29 15:12:49 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 void		three_input(t_lst *tail_lst)
@@ -60,7 +59,6 @@ void		five_input(t_lst *tail_a, t_lst *tail_b)
 void		five_input2(t_lst *tail_a, t_lst *tail_b, t_st *max, int flag)
 {
 	three_input(tail_a);
-	printf("flag : %d\n", flag);
 	while (flag--)
 	{
 		pa(tail_a, tail_b);
@@ -84,6 +82,8 @@ void		push_swap(t_lst *tail_a)
 	t_lst	*tail_b;
 
 	tail_b = ft_lstnew_t();
+	if (check_ascending(tail_a, tail_a->size) == 0)
+		exit(0);
 	if (tail_a->size <= 3)
 		three_input(tail_a);
 	else if (tail_a->size > 3 && tail_a->size <= 5)
