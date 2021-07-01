@@ -6,7 +6,7 @@
 /*   By: dim <dim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 20:24:56 by dim               #+#    #+#             */
-/*   Updated: 2021/06/29 15:12:51 by dim              ###   ########.fr       */
+/*   Updated: 2021/07/01 17:34:16 by dim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int		main(int argc, char *argv[])
 	parse(argv, tail_a);
 	push_swap(tail_a);
 	free_lst(tail_a);
-	return (1);
+	return (0);
 }
